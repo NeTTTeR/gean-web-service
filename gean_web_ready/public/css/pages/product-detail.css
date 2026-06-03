@@ -1,0 +1,176 @@
+/* ── PRODUCT HERO (two-column) ────────────────────────── */
+.product-section  { background: var(--white); border-bottom: 1px solid var(--border); }
+.product-wrapper  { max-width: 1360px; margin: 0 auto; display: grid; grid-template-columns: 55% 45%; }
+
+/* GALLERY */
+.gallery-col {
+  position: sticky; top: 64px; height: calc(100vh - 64px);
+  border-right: 1px solid var(--border); padding: 48px 56px;
+  display: flex; flex-direction: column; gap: 16px; overflow: hidden; background: var(--white);
+}
+.main-image-wrap {
+  flex: 1;
+  background: linear-gradient(150deg,#D8EEE7 0%,#B8D4CA 50%,#9DBDB2 100%);
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden; transition: background 0.6s var(--ease-out);
+}
+.main-image-wrap::before { content:''; position:absolute; inset:0; background:radial-gradient(circle at 35% 30%,rgba(255,255,255,0.28) 0%,transparent 55%); pointer-events:none; }
+.main-image-wrap::after  { content:'GEAN'; position:absolute; bottom:-20px; right:-20px; font-size:160px; font-weight:800; color:rgba(20,55,44,0.07); line-height:1; letter-spacing:-0.02em; pointer-events:none; }
+.product-tube {
+  position: relative; z-index: 1; width: 76px; height: 176px;
+  background: var(--white); border-radius: 38px 38px 6px 6px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.14), 0 6px 20px rgba(0,0,0,0.07);
+  transition: opacity 0.4s;
+}
+.tube-brand { font-size:10px; font-weight:700; letter-spacing:0.28em; color:var(--navy); text-transform:uppercase; }
+.tube-line  { width:22px; height:1px; background:var(--tan); opacity:0.5; }
+.tube-sub   { font-size:7px; font-weight:400; letter-spacing:0.18em; color:var(--muted); text-transform:uppercase; }
+
+.gallery-thumbs { display: flex; gap: 10px; }
+.thumb {
+  flex: 1; aspect-ratio: 1; cursor: pointer;
+  position: relative; border: 1px solid transparent; transition: border-color 0.25s; overflow: hidden;
+}
+.thumb:hover, .thumb.active { border-color: var(--tan); }
+.thumb-bg   { width: 100%; height: 100%; }
+.thumb-label {
+  position: absolute; bottom:0; left:0; right:0; padding:5px 0; text-align:center;
+  font-size:8px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase;
+  color:rgba(0,0,0,0.35); background:linear-gradient(transparent,rgba(255,255,255,0.6));
+}
+
+/* INFO */
+.info-col { padding: 56px 64px 80px; }
+.back-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size:10px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase;
+  color:var(--muted); transition:color 0.2s; margin-bottom:44px;
+}
+.back-link:hover { color: var(--tan); }
+.eyebrow      { font-size:10px; font-weight:600; letter-spacing:0.35em; text-transform:uppercase; color:var(--tan); margin-bottom:14px; }
+.product-title{ font-size:clamp(36px,3.5vw,52px); font-weight:200; letter-spacing:0.07em; color:var(--navy); line-height:1.05; margin-bottom:8px; }
+.product-subtitle{ font-size:13px; font-weight:300; color:var(--muted); letter-spacing:0.05em; margin-bottom:36px; }
+.info-rule    { height:1px; background:var(--border); margin-bottom:28px; }
+.price-row    { display:flex; align-items:baseline; gap:10px; margin-bottom:10px; }
+.price-main   { font-size:32px; font-weight:200; letter-spacing:0.03em; color:var(--navy); }
+.price-unit   { font-size:12px; font-weight:400; color:var(--muted); letter-spacing:0.08em; }
+.stock-row    { display:flex; align-items:center; gap:7px; margin-bottom:32px; font-size:11px; font-weight:500; color:#4A8C5C; letter-spacing:0.06em; }
+.stock-dot    { width:6px; height:6px; border-radius:50%; background:#4A8C5C; flex-shrink:0; }
+
+/* TABS */
+.tab-nav { display:flex; border-bottom:1px solid var(--border); margin-bottom:28px; }
+.tab-btn {
+  background:none; border:none; cursor:pointer;
+  font-size:10px; font-weight:600; letter-spacing:0.18em; text-transform:uppercase;
+  color:var(--muted); padding:12px 0; margin-right:28px;
+  border-bottom:1px solid transparent; margin-bottom:-1px; transition:color 0.2s,border-color 0.2s;
+}
+.tab-btn.active { color:var(--navy); border-bottom-color:var(--navy); }
+.tab-btn:hover  { color: var(--navy); }
+.tab-pane   { display:none; animation:fadeInTab 0.25s ease; }
+.tab-pane.active { display:block; }
+@keyframes fadeInTab { from{opacity:0;transform:translateY(4px);} to{opacity:1;transform:none;} }
+.desc-text    { font-size:13px; color:var(--text-soft); line-height:2; margin-bottom:14px; }
+.desc-text-th { font-size:13px; color:var(--text-soft); line-height:2; margin-top:4px; }
+
+.ingredient-list { list-style:none; display:flex; flex-direction:column; }
+.ingredient-item { display:flex; align-items:flex-start; gap:16px; padding:14px 0; border-bottom:1px solid var(--border); }
+.ingredient-item:first-child { padding-top:0; }
+.ingredient-item:last-child  { border-bottom:none; }
+.ing-dot  { width:5px; height:5px; border-radius:50%; background:var(--tan); flex-shrink:0; margin-top:8px; }
+.ing-name { font-size:11px; font-weight:700; color:var(--navy); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:3px; }
+.ing-desc { font-size:12px; color:var(--text-soft); line-height:1.8; }
+
+.ritual-steps { display:flex; flex-direction:column; gap:20px; }
+.ritual-step  { display:flex; gap:18px; }
+.step-num  { font-size:10px; font-weight:600; color:var(--tan); letter-spacing:0.1em; flex-shrink:0; padding-top:3px; min-width:26px; }
+.step-text { font-size:13px; color:var(--text-soft); line-height:1.85; }
+
+/* CTA */
+.cta-stack { margin-top:40px; display:flex; flex-direction:column; gap:10px; }
+.btn-ghost {
+  display:block; width:100%; padding:16px; background:transparent;
+  color:var(--text-soft); border:1px solid var(--border);
+  font-size:11px; font-weight:500; letter-spacing:0.15em; text-transform:uppercase;
+  cursor:pointer; text-align:center; transition:border-color 0.2s,color 0.2s; border-radius:2px;
+}
+.btn-ghost:hover { border-color:var(--navy); color:var(--navy); }
+
+/* TRUST STRIP */
+.trust-strip { display:grid; grid-template-columns:repeat(3,1fr); margin-top:36px; border:1px solid var(--border); }
+.trust-item  { padding:18px 14px; text-align:center; border-right:1px solid var(--border); }
+.trust-item:last-child { border-right:none; }
+.trust-label { display:block; font-size:10px; font-weight:700; color:var(--navy); letter-spacing:0.12em; text-transform:uppercase; margin-bottom:3px; }
+.trust-sub   { font-size:10px; color:var(--text-soft); }
+
+/* CRAFTED SECTION */
+.crafted-section {
+  background: radial-gradient(circle 560px at 92% 55%,rgba(204,225,217,0.08) 0%,transparent 65%),
+              radial-gradient(circle 400px at 6% 25%,rgba(207,171,141,0.06) 0%,transparent 60%),
+              var(--navy-dark);
+  padding: var(--sv) var(--sh);
+}
+.crafted-inner { max-width: 1360px; margin: 0 auto; }
+.section-title-light { font-size:clamp(28px,3vw,44px); font-weight:200; letter-spacing:0.07em; color:var(--white); margin-bottom:60px; line-height:1.15; }
+.ing-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(255,255,255,0.07); }
+.ing-card {
+  background:var(--navy-dark); padding:44px 38px;
+  border-left:2px solid transparent; transition:background 0.3s,border-color 0.3s;
+}
+.ing-card:hover { background:#1F3D33; border-left-color:rgba(204,225,217,0.4); }
+.ing-num       { display:block; font-size:9px; font-weight:600; letter-spacing:0.25em; color:var(--tan); margin-bottom:24px; }
+.ing-card-name { font-size:15px; font-weight:300; color:var(--white); letter-spacing:0.04em; margin-bottom:14px; line-height:1.3; }
+.ing-card-desc { font-size:12px; color:rgba(255,255,255,0.55); line-height:1.9; }
+
+/* RITUAL SECTION */
+.ritual-section {
+  background: radial-gradient(circle 420px at 8% 78%,rgba(204,225,217,0.22) 0%,transparent 60%), var(--cream);
+  padding: var(--sv) var(--sh); border-top: 1px solid var(--border);
+}
+.ritual-inner  { max-width: 1360px; margin: 0 auto; }
+.ritual-header { max-width: 540px; margin-bottom: 72px; }
+.section-title-dark { font-size:clamp(28px,3vw,44px); font-weight:200; letter-spacing:0.07em; color:var(--navy); line-height:1.15; }
+.ritual-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:60px; }
+.ritual-num  { display:block; font-size:52px; font-weight:200; color:var(--tan); opacity:0.4; margin-bottom:20px; letter-spacing:-0.02em; line-height:1; }
+.ritual-title{ font-size:11px; font-weight:700; color:var(--navy); letter-spacing:0.18em; text-transform:uppercase; margin-bottom:12px; }
+.ritual-text { font-size:13px; color:var(--muted); line-height:1.9; }
+
+/* RELATED */
+.related-section { background:var(--white); padding:var(--sv) var(--sh); border-top:1px solid var(--border); }
+.related-inner   { max-width: 1360px; margin: 0 auto; }
+.related-header  { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:52px; }
+.view-all-link   { font-size:10px; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:var(--muted); transition:color 0.2s; }
+.view-all-link:hover { color:var(--navy); }
+.related-grid    { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); }
+.related-card    { background:var(--white); cursor:pointer; transition:background 0.2s; display:block; color:inherit; }
+.related-card:hover { background:var(--cream); }
+.related-card.muted { opacity:0.4; cursor:default; pointer-events:none; }
+.related-img     { aspect-ratio:4/5; display:flex; align-items:center; justify-content:center; }
+.mini-tube       { width:40px; height:92px; background:var(--white); border-radius:20px 20px 4px 4px; box-shadow:0 16px 40px rgba(0,0,0,0.1); }
+.related-body    { padding:20px 24px 28px; }
+.related-eyebrow { font-size:9px; font-weight:700; color:var(--tan); letter-spacing:0.26em; text-transform:uppercase; margin-bottom:6px; }
+.related-name    { font-size:15px; font-weight:300; color:var(--navy); margin-bottom:4px; }
+.related-price   { font-size:13px; font-weight:300; color:var(--muted); }
+
+/* ── RESPONSIVE ───────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .product-wrapper { grid-template-columns: 1fr; }
+  .gallery-col { position:static; height:auto; border-right:none; border-bottom:1px solid var(--border); padding:40px; }
+  .main-image-wrap { min-height:360px; }
+  .info-col { padding:40px 40px 64px; }
+  .ing-grid { grid-template-columns:repeat(2,1fr); }
+  .ritual-grid { grid-template-columns:repeat(2,1fr); gap:40px; }
+  .related-grid { grid-template-columns:repeat(2,1fr); }
+}
+@media (max-width: 768px) {
+  .gallery-col { padding:28px 20px; }
+  .info-col    { padding:32px 20px 60px; }
+  .crafted-section,.ritual-section,.related-section { padding:72px 20px; }
+  .ing-grid { grid-template-columns:1fr; }
+  .ritual-grid { grid-template-columns:1fr; }
+  .related-grid { grid-template-columns:1fr; }
+  .trust-strip { grid-template-columns:1fr; }
+  .trust-item  { border-right:none; border-bottom:1px solid var(--border); }
+  .trust-item:last-child { border-bottom:none; }
+}

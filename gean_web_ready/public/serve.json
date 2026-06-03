@@ -1,0 +1,1 @@
+{"cleanUrls":true,"rewrites":[{"source":"/product-detail","destination":"/product-detail.html"},{"source":"/article/detail","destination":"/article-detail.html"}]}

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GEAN — Contact Us</title>
+<style>
+@font-face{font-family:'Montserrat';src:url('../asset/font/Montserrat/Montserrat-VariableFont_wght.ttf') format('truetype');font-weight:100 900;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Sarabun';src:url('../asset/font/Sarabun/Sarabun-VariableFont_wght.ttf') format('truetype');font-weight:100 900;font-style:normal;font-display:swap;unicode-range:U+0E00-0E7F;}
+@font-face{font-family:'Sarabun';src:url('../asset/font/Sarabun/Sarabun-Italic-VariableFont_wght.ttf') format('truetype');font-weight:100 900;font-style:italic;font-display:swap;unicode-range:U+0E00-0E7F;}
+:root{
+  --navy:#2A4A3E;--navy-dark:#1C3530;--navy-900:#111D1A;
+  --tan:#CFAB8D;--tan-light:#E8D5C0;--tan-dark:#B8956F;
+  --sage:#CCE1D9;--cream:#F5FAF8;--white:#FFFFFF;
+  --text:#1A1A1A;--muted:#7A7A7A;--border:#D8EAE4;
+  --sh-sm:0 4px 16px rgba(0,0,0,0.07);--sh-md:0 8px 32px rgba(0,0,0,0.10);--sh-lg:0 20px 60px rgba(0,0,0,0.14);
+  --r-sm:8px;--r:16px;--r-lg:24px;--r-xl:40px;
+  --ease-out:cubic-bezier(0.22,1,0.36,1);
+  --sv:clamp(72px,7vw,100px);--sh:clamp(20px,4vw,56px);--mw:1000px;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+button,input,textarea{font-family:'Montserrat','Sarabun',sans-serif;}
+body{font-family:'Montserrat','Sarabun',sans-serif;background:var(--cream);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+img{max-width:100%;display:block;}
+a{text-decoration:none;color:inherit;}
+
+/* NAVBAR */
+.navbar{position:sticky;top:0;z-index:100;background:rgba(245,250,248,0.92);backdrop-filter:blur(20px) saturate(1.5);-webkit-backdrop-filter:blur(20px) saturate(1.5);border-bottom:1px solid var(--border);padding:0 var(--sh);height:64px;display:flex;align-items:center;justify-content:space-between;}
+.navbar::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--sage),var(--tan),var(--sage));}
+.nav-logo img{height:34px;}
+.nav-links{display:flex;gap:36px;list-style:none;}
+.nav-links a{font-size:10px;font-weight:500;color:var(--muted);letter-spacing:0.18em;text-transform:uppercase;transition:color 0.2s;position:relative;padding-bottom:2px;}
+.nav-links a::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:1px;background:var(--tan);transform:scaleX(0);transform-origin:left;transition:transform 0.3s var(--ease-out);}
+.nav-links a:hover{color:var(--navy);}
+.nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);}
+.nav-links a.active{color:var(--navy);}
+.nav-right{display:flex;align-items:center;gap:8px;}
+.btn-nav-cta{background:var(--navy);color:var(--white);border:none;padding:8px 20px;border-radius:var(--r-xl);font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;cursor:pointer;transition:all 0.3s var(--ease-out);position:relative;overflow:hidden;}
+.btn-nav-cta::before{content:'';position:absolute;inset:0;background:var(--tan);transform:translateX(-101%);transition:transform 0.3s var(--ease-out);}
+.btn-nav-cta:hover::before{transform:translateX(0);}
+.btn-nav-cta span{position:relative;z-index:1;}
+.menu-toggle{display:none;background:none;border:none;cursor:pointer;width:38px;height:38px;border-radius:50%;align-items:center;justify-content:center;color:var(--navy);transition:background 0.2s;}
+.menu-toggle:hover{background:var(--border);}
+.menu-toggle svg{width:18px;height:18px;}
+.mobile-nav{display:none;position:fixed;inset:0;z-index:99;}
+.mobile-nav.open{display:block;}
+.mobile-nav-backdrop{position:absolute;inset:0;background:rgba(0,0,0,0.5);backdrop-filter:blur(4px);}
+.mobile-nav-panel{position:absolute;top:0;right:0;bottom:0;width:280px;background:var(--white);padding:80px 32px 40px;display:flex;flex-direction:column;gap:4px;}
+.mobile-nav-panel a{font-size:12px;font-weight:600;color:var(--navy);letter-spacing:0.1em;text-transform:uppercase;padding:14px 0;border-bottom:1px solid var(--border);}
+.mobile-nav-panel .btn-nav-cta{margin-top:16px;text-align:center;display:block;padding:12px 20px;}
+
+/* PAGE HEADER */
+.contact-header{
+  background:radial-gradient(circle 500px at 12% 60%,rgba(204,225,217,0.14) 0%,transparent 58%),radial-gradient(circle 360px at 90% 28%,rgba(207,171,141,0.12) 0%,transparent 55%),linear-gradient(150deg,var(--navy) 0%,var(--navy-dark) 100%);
+  padding:60px var(--sh) 56px;position:relative;overflow:hidden;
+  display:grid;grid-template-columns:1fr 1fr;align-items:flex-end;gap:40px;
+}
+.contact-header::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(204,225,217,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(204,225,217,0.03) 1px,transparent 1px);background-size:80px 80px;}
+.ch-left{position:relative;z-index:2;}
+.ch-tag{font-size:10px;font-weight:600;color:var(--tan);letter-spacing:0.4em;text-transform:uppercase;margin-bottom:16px;display:block;}
+.ch-title{font-size:clamp(40px,6vw,80px);font-weight:800;color:var(--white);letter-spacing:0.03em;text-transform:uppercase;line-height:0.95;}
+.ch-title span{font-weight:200;color:rgba(255,255,255,0.7);display:block;}
+.ch-right{position:relative;z-index:2;padding-bottom:8px;}
+.ch-desc{font-size:13px;color:rgba(255,255,255,0.5);line-height:1.9;max-width:340px;margin-left:auto;}
+
+/* CONNECT SECTION */
+.connect-section{background:var(--cream);padding:clamp(48px,5vw,72px) var(--sh);}
+.connect-inner{max-width:var(--mw);margin:0 auto;}
+
+/* contact row — icon | body | action */
+.contact-row{
+  display:grid;grid-template-columns:56px 1fr auto;gap:32px;
+  padding:36px 0;border-bottom:1px solid var(--border);
+  align-items:center;text-decoration:none;color:inherit;cursor:pointer;
+}
+.contact-row:last-child{border-bottom:none;}
+
+/* platform icon — left column */
+.contact-icon{
+  width:56px;height:56px;border-radius:var(--r-sm);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  transition:transform 0.3s var(--ease-out),box-shadow 0.3s;
+}
+.contact-icon svg{width:26px;height:26px;}
+.contact-icon-line{background:#06C755;}
+.contact-icon-ig{background:linear-gradient(135deg,#f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);}
+.contact-row:hover .contact-icon{transform:scale(1.06);box-shadow:0 8px 24px rgba(0,0,0,0.15);}
+
+/* body — middle */
+.contact-body{display:flex;flex-direction:column;gap:4px;}
+.contact-name{font-size:9px;font-weight:700;color:var(--muted);letter-spacing:0.22em;text-transform:uppercase;}
+.contact-rule{width:20px;height:1px;background:var(--tan);margin:10px 0;transition:width 0.35s var(--ease-out);}
+.contact-row:hover .contact-rule{width:36px;}
+.contact-handle{font-size:clamp(18px,2.2vw,26px);font-weight:800;color:var(--navy);letter-spacing:-0.01em;line-height:1.1;}
+.contact-desc{font-size:12px;color:var(--muted);line-height:1.7;margin-top:2px;}
+
+/* action — right column */
+.contact-action{display:flex;flex-direction:column;align-items:flex-end;gap:12px;flex-shrink:0;}
+
+/* QR inline — only in LINE row */
+.qr-mini{
+  width:88px;height:88px;
+  background:var(--white);border:1px solid var(--border);
+  border-radius:var(--r-sm);padding:6px;
+  box-shadow:var(--sh-sm);flex-shrink:0;
+}
+.qr-mini img{width:100%;height:100%;object-fit:contain;display:block;}
+
+/* CTA button */
+.btn-cta-line{
+  display:inline-flex;align-items:center;gap:7px;
+  background:var(--navy);color:var(--white);
+  border:none;padding:10px 20px;border-radius:var(--r-xl);
+  font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;
+  cursor:pointer;text-decoration:none;white-space:nowrap;
+  transition:all 0.3s var(--ease-out);position:relative;overflow:hidden;
+}
+.btn-cta-line::before{content:'';position:absolute;inset:0;background:var(--tan);transform:translateX(-101%);transition:transform 0.3s var(--ease-out);}
+.btn-cta-line:hover::before{transform:translateX(0);}
+.btn-cta-line span{position:relative;z-index:1;display:flex;align-items:center;gap:7px;}
+
+/* text link for IG */
+.contact-link{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:10px;font-weight:700;color:var(--navy);
+  letter-spacing:0.16em;text-transform:uppercase;
+  border-bottom:1px solid var(--tan);padding-bottom:2px;
+  transition:color 0.2s;white-space:nowrap;
+}
+.contact-link:hover{color:var(--tan);}
+.contact-link svg{width:11px;height:11px;transition:transform 0.25s;}
+.contact-row:hover .contact-link svg{transform:translateX(3px);}
+
+/* FAQ */
+.faq-section{
+  background:var(--cream);
+  padding:var(--sv) var(--sh);
+}
+.faq-inner{max-width:var(--mw);margin:0 auto;background:var(--navy);border-radius:var(--r-lg);box-shadow:0 20px 60px rgba(0,0,0,0.25);border:1px solid rgba(255,255,255,0.07);padding:48px 52px;}
+.faq-header{margin-bottom:40px;}
+.faq-eyebrow{font-size:10px;font-weight:700;letter-spacing:0.4em;text-transform:uppercase;color:var(--tan);margin-bottom:12px;display:block;}
+.faq-heading{font-size:clamp(26px,3.2vw,42px);font-weight:800;color:var(--white);}
+.faq-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.06);border-radius:var(--r-sm);overflow:hidden;}
+.faq-item{padding:36px 30px;background:var(--navy-dark);border-left:2px solid transparent;transition:background 0.3s,border-color 0.3s;}
+.faq-item:hover{background:rgba(42,74,62,0.6);border-left-color:var(--tan);}
+.faq-q{font-size:13px;font-weight:800;color:var(--white);margin-bottom:12px;line-height:1.4;}
+.faq-a{font-size:12px;color:rgba(255,255,255,0.5);line-height:1.9;}
+.faq-a strong{color:var(--tan);font-weight:700;}
+
+/* FOOTER */
+.footer{background:var(--navy-dark);padding:80px var(--sh) 36px;position:relative;overflow:hidden;}
+.footer::before{content:'GEAN';position:absolute;bottom:-40px;right:-20px;font-size:240px;font-weight:800;color:rgba(255,255,255,0.02);line-height:1;letter-spacing:-0.02em;pointer-events:none;}
+.footer-main{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.8fr 1fr 1fr;gap:64px;padding-bottom:52px;border-bottom:1px solid rgba(255,255,255,0.07);position:relative;}
+.footer-brand img{height:32px;margin-bottom:18px;filter:brightness(0) invert(1);}
+.footer-tagline{font-size:12px;color:rgba(255,255,255,0.35);line-height:1.9;max-width:240px;margin-bottom:28px;}
+.footer-social{display:flex;gap:8px;}
+.social-btn{width:38px;height:38px;border-radius:var(--r-sm);border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.5);font-size:10px;font-weight:700;letter-spacing:0.05em;transition:all 0.25s;text-decoration:none;}
+.social-btn:hover{border-color:var(--tan);color:var(--tan);background:rgba(207,171,141,0.08);}
+.footer-col-label{font-size:9px;font-weight:700;color:var(--tan);letter-spacing:0.3em;text-transform:uppercase;margin-bottom:20px;}
+.footer-col a{display:block;font-size:12px;color:rgba(255,255,255,0.42);margin-bottom:12px;transition:color 0.2s;}
+.footer-col a:hover{color:var(--white);}
+.footer-bottom{max-width:1200px;margin:0 auto;padding-top:28px;display:flex;justify-content:space-between;align-items:center;font-size:10px;color:rgba(255,255,255,0.18);letter-spacing:0.04em;position:relative;}
+
+@media(max-width:900px){.faq-grid{grid-template-columns:1fr;}}
+@media(max-width:768px){
+  .navbar{padding:0 20px;}.nav-links{display:none;}.menu-toggle{display:flex;}
+  .contact-header{grid-template-columns:1fr;gap:20px;padding:64px 20px 56px;}.ch-desc{margin-left:0;}
+  .connect-section{padding-left:20px;padding-right:20px;}
+  .contact-row{grid-template-columns:48px 1fr;gap:20px;}
+  .contact-action{display:none;}
+  .contact-row:first-of-type .contact-action{display:flex;flex-direction:row;align-items:center;gap:12px;grid-column:1/-1;padding-left:68px;}
+  .faq-section{padding-left:20px;padding-right:20px;}
+  .footer{padding-left:20px;padding-right:20px;}.footer-main{grid-template-columns:1fr;gap:36px;}.footer-bottom{flex-direction:column;gap:8px;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <a href="home.html" class="nav-logo"><img src="../asset/image/LOGO_GEAN.png" alt="GEAN"></a>
+  <ul class="nav-links">
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="our-story.html">Our Story</a></li>
+    <li><a href="article.html">Article</a></li>
+    <li><a href="contact.html" class="active">Contact Us</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="shop.html" class="btn-nav-cta"><span>Buy Now</span></a>
+    <button class="menu-toggle" onclick="toggleMenu()" aria-label="Menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav-backdrop" onclick="toggleMenu()"></div>
+  <nav class="mobile-nav-panel">
+    <a href="shop.html" onclick="toggleMenu()">Shop</a>
+    <a href="our-story.html" onclick="toggleMenu()">Our Story</a>
+    <a href="article.html" onclick="toggleMenu()">Article</a>
+    <a href="contact.html" onclick="toggleMenu()">Contact Us</a>
+    <a href="shop.html" class="btn-nav-cta"><span>Buy Now</span></a>
+  </nav>
+</div>
+
+<!-- PAGE HEADER -->
+<header class="contact-header">
+  <div class="ch-left">
+    <span class="ch-tag">Contact</span>
+    <h1 class="ch-title">Let's<span>Connect</span></h1>
+  </div>
+  <div class="ch-right">
+    <p class="ch-desc">ติดต่อเราผ่าน LINE หรือ Instagram — ทีมงานพร้อมตอบทุกคำถามทุกวัน ไม่มีวันหยุด</p>
+  </div>
+</header>
+
+<!-- CONNECT -->
+<section class="connect-section">
+  <div class="connect-inner">
+
+    <!-- LINE + QR รวมกัน -->
+    <div class="contact-row">
+      <div class="contact-icon contact-icon-line">
+        <svg viewBox="0 0 24 24" fill="white"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+      </div>
+      <div class="contact-body">
+        <div class="contact-name">LINE Official Account</div>
+        <div class="contact-rule"></div>
+        <div class="contact-handle">@gean.officially</div>
+        <p class="contact-desc">สั่งซื้อ &amp; สอบถาม — ตอบทุกวัน</p>
+      </div>
+      <div class="contact-action">
+        <div class="qr-mini">
+          <img src="../asset/image/QR_LINE_GEAN.PNG" alt="QR LINE GEAN">
+        </div>
+        <a href="https://lin.ee/9KbETXv" target="_blank" rel="noopener" class="btn-cta-line">
+          <span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="white"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+            เพิ่มเพื่อน LINE
+          </span>
+        </a>
+      </div>
+    </div>
+
+    <!-- INSTAGRAM -->
+    <a href="https://www.instagram.com/gean.officially" target="_blank" rel="noopener" class="contact-row">
+      <div class="contact-icon contact-icon-ig">
+        <svg viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      </div>
+      <div class="contact-body">
+        <div class="contact-name">Instagram</div>
+        <div class="contact-rule"></div>
+        <div class="contact-handle">@gean.officially</div>
+        <p class="contact-desc">ติดตามข่าวสาร &amp; DM ได้ตลอด</p>
+      </div>
+      <div class="contact-action">
+        <span class="contact-link">Follow <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="faq-inner">
+    <div class="faq-header">
+      <span class="faq-eyebrow">FAQ</span>
+      <h2 class="faq-heading">Quick Answers</h2>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <div class="faq-q">จัดส่งนานแค่ไหน?</div>
+        <div class="faq-a"><strong>1–3 วันทำการ</strong> หลังยืนยันชำระเงิน กทม. &amp; ปริมณฑล รับภายใน 1 วัน</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">คืนสินค้าได้ไหม?</div>
+        <div class="faq-a">รับคืนภายใน <strong>7 วัน</strong> หากสินค้าเสียหาย แจ้งผ่าน LINE พร้อมรูปถ่าย ทีมงานดำเนินการทันที</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">ของแท้หรือเปล่า?</div>
+        <div class="faq-a">ของแท้ <strong>100%</strong> ซื้อผ่านช่องทางทางการเท่านั้น ไม่มีตัวแทนจำหน่าย</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-main">
+    <div class="footer-brand">
+      <img src="../asset/image/LOGO_GEAN.png" alt="GEAN">
+      <p class="footer-tagline">Beyond moisture. A sanctuary for your hands. Premium hand care for the modern professional.</p>
+      <div class="footer-social">
+        <a href="https://lin.ee/9KbETXv" target="_blank" rel="noopener" class="social-btn">LINE</a>
+        <a href="https://www.instagram.com/gean.officially" target="_blank" rel="noopener" class="social-btn">IG</a>
+      </div>
+    </div>
+    <div class="footer-col"><div class="footer-col-label">Navigate</div><a href="shop.html">Shop</a><a href="our-story.html">Our Story</a><a href="article.html">Article</a><a href="contact.html">Contact Us</a></div>
+    <div class="footer-col"><div class="footer-col-label">Contact</div><a href="https://lin.ee/9KbETXv" target="_blank" rel="noopener">LINE @gean.officially</a><a href="https://www.instagram.com/gean.officially" target="_blank" rel="noopener">Instagram @gean.officially</a></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 GEAN. All rights reserved.</span>
+    <span>Hand care for the modern professional.</span>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.getElementById('mobileNav').classList.toggle('open');}
+</script>
+</body>
+</html>

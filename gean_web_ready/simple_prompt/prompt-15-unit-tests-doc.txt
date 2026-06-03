@@ -1,0 +1,10 @@
+Based on the PostgreSQL migration requirements in `docs/requirement-2.md` and the technical specifications in `docs/technical-spec.md`, create a comprehensive unit test cases document for the Requirement & Effort Tracker application. Focus specifically on API-level testing for the database operations and business logic.
+
+Create the file `docs/test-cases.md` with the following structure and requirements:
+
+**API Endpoint Testing**: Define test cases for all CRUD operations (Create, Read, Update, Delete) for:
+   - Project management (create, read, update project name)
+   - Requirement management (add, edit, delete, toggle status)
+   - Settings management (effort column visibility, language preferences)
+
+Use the existing TypeScript interfaces (AppState, Project, Requirement, Settings, Metadata) as the basis for test data structures. Follow the testing standards mentioned in the technical specification document.

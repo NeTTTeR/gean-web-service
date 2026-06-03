@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GEAN — Article</title>
+<link rel="stylesheet" href="/css/tokens.css">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/navbar.css">
+<link rel="stylesheet" href="/css/footer.css">
+<link rel="stylesheet" href="/css/pages/article.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <a href="/" class="nav-logo"><img src="/asset/image/LOGO_GEAN.png" alt="GEAN"></a>
+  <ul class="nav-links">
+    <li><a href="/shop">Shop</a></li>
+    <li><a href="/our-story">Our Story</a></li>
+    <li><a href="/article">Article</a></li>
+    <li><a href="/contact">Contact Us</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="/cart" class="cart-icon-btn" id="cartIconBtn" aria-label="Cart">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/>
+      </svg>
+      <span class="cart-badge" id="cartBadge" style="display:none">0</span>
+    </a>
+    <a href="/contact" class="btn-nav-cta"><span>Buy Now</span></a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
+  <nav class="mobile-nav-panel">
+    <a href="/shop">Shop</a>
+    <a href="/our-story">Our Story</a>
+    <a href="/article">Article</a>
+    <a href="/contact">Contact Us</a>
+    <a href="/contact" class="btn-nav-cta"><span>Buy Now</span></a>
+  </nav>
+</div>
+
+<!-- PAGE HEADER -->
+<header class="page-header">
+  <span class="ph-eyebrow">GEAN Knowledge</span>
+  <h1 class="ph-title">Know<span>ledge Hub</span></h1>
+  <p class="ph-sub">Skincare science, wellness rituals &amp; the science of GEAN</p>
+</header>
+
+<!-- ARTICLES -->
+<section class="article-section" id="articles">
+  <!-- Featured article slot -->
+  <div id="featuredArticle"></div>
+
+  <!-- GRID HEADER -->
+  <div class="grid-header">
+    <span class="section-eyebrow">All Articles</span>
+    <span class="article-count" id="articleCount"></span>
+  </div>
+
+  <!-- ARTICLE GRID -->
+  <div class="article-grid" id="articleGrid"></div>
+
+  <!-- LOAD MORE -->
+  <div class="load-more-wrap" id="loadMoreWrap" style="display:none;">
+    <button class="btn-load" id="loadMoreBtn"><span>Load More Articles</span></button>
+    <div class="load-count" id="loadCount"></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-main">
+    <div class="footer-brand">
+      <img src="/asset/image/LOGO_GEAN.png" alt="GEAN">
+      <p class="footer-tagline">Beyond moisture. A sanctuary for your hands. Premium hand care for the modern professional.</p>
+      <div class="footer-social">
+        <a href="https://lin.ee/9KbETXv" target="_blank" rel="noopener" class="social-btn">LINE</a>
+        <a href="https://www.instagram.com/gean.officially" target="_blank" rel="noopener" class="social-btn">IG</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-label">Navigate</div>
+      <a href="/shop">Shop</a><a href="/our-story">Our Story</a><a href="/article">Article</a><a href="/contact">Contact Us</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-label">Contact</div>
+      <a href="https://lin.ee/9KbETXv" target="_blank" rel="noopener">LINE @gean.officially</a>
+      <a href="https://www.instagram.com/gean.officially" target="_blank" rel="noopener">Instagram @gean.officially</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 GEAN. All rights reserved.</span>
+    <span>Hand care for the modern professional.</span>
+  </div>
+</footer>
+
+<script src="/js/api.js"></script>
+<script src="/js/cart.js"></script>
+<script src="/js/navbar.js"></script>
+<script src="/js/pages/article.js"></script>
+</body>
+</html>

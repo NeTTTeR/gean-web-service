@@ -1,0 +1,44 @@
+:root {
+  /* Brand Colours */
+  --navy:      #2A4A3E;
+  --navy-dark: #1C3530;
+  --navy-900:  #111D1A;
+  --tan:       #CFAB8D;
+  --tan-light: #E8D5C0;
+  --tan-dark:  #B8956F;
+  --sage:      #CCE1D9;
+  --sage-dark: #A8C9BC;
+  --cream:     #F5FAF8;
+  --white:     #FFFFFF;
+
+  /* Text */
+  --text:      #1A1A1A;
+  --text-soft: #3D3D3D;
+  --muted:     #7A7A7A;
+  --border:    #D8EAE4;
+
+  /* Glassmorphism (home hero only) */
+  --glass:   rgba(255,255,255,0.06);
+  --glass-b: rgba(255,255,255,0.10);
+
+  /* Radii */
+  --r-sm: 8px;
+  --r:    16px;
+  --r-lg: 24px;
+  --r-xl: 40px;
+
+  /* Shadows */
+  --sh-sm: 0 4px 16px rgba(0,0,0,0.07);
+  --sh-md: 0 8px 32px rgba(0,0,0,0.10);
+  --sh-lg: 0 20px 60px rgba(0,0,0,0.14);
+  --sh-xl: 0 40px 100px rgba(0,0,0,0.18);
+
+  /* Layout */
+  --sv: clamp(72px, 7vw, 100px);
+  --sh: clamp(20px, 4vw, 56px);
+  --mw: 1240px;
+
+  /* Easing */
+  --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.4, 0.64, 1);
+}

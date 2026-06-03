@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GEAN — Product Detail</title>
+<link rel="stylesheet" href="/css/tokens.css">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/navbar.css">
+<link rel="stylesheet" href="/css/footer.css">
+<link rel="stylesheet" href="/css/pages/product-detail.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <a href="/" class="nav-logo"><img src="/asset/image/LOGO_GEAN.png" alt="GEAN"></a>
+  <ul class="nav-links">
+    <li><a href="/shop">Shop</a></li>
+    <li><a href="/our-story">Our Story</a></li>
+    <li><a href="/article">Article</a></li>
+    <li><a href="/contact">Contact Us</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="/cart" class="cart-icon-btn" id="cartIconBtn" aria-label="Cart">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/>
+      </svg>
+      <span class="cart-badge" id="cartBadge" style="display:none">0</span>
+    </a>
+    <a href="/contact" class="btn-nav-cta"><span>Buy via LINE</span></a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
+  <nav class="mobile-nav-panel">
+    <a href="/shop">Shop</a>
+    <a href="/our-story">Our Story</a>
+    <a href="/article">Article</a>
+    <a href="/contact">Contact Us</a>
+    <a href="/contact" class="btn-nav-cta"><span>Buy Now</span></a>
+  </nav>
+</div>
+
+<!-- PRODUCT CONTENT — rendered by product-detail.js -->
+<div id="productContent">
+  <section class="product-section">
+    <div class="product-wrapper">
+      <!-- GALLERY -->
+      <div class="gallery-col">
+        <div class="main-image-wrap" id="mainView">
+          <div class="product-tube" id="mainTube">
+            <span class="tube-brand">GEAN</span>
+            <span class="tube-line"></span>
+            <span class="tube-sub">Hand Cream</span>
+          </div>
+        </div>
+        <div class="gallery-thumbs" id="galleryThumbs">
+          <div class="thumb active" data-view="product"><div class="thumb-bg" style="background:linear-gradient(150deg,#D8EEE7,#9DBDB2);"></div><span class="thumb-label">Product</span></div>
+          <div class="thumb" data-view="texture"><div class="thumb-bg" style="background:linear-gradient(150deg,#F5EDE4,#E8D0B8);"></div><span class="thumb-label">Texture</span></div>
+          <div class="thumb" data-view="detail"><div class="thumb-bg" style="background:linear-gradient(150deg,#EFF7F1,#C8E8DC);"></div><span class="thumb-label">Detail</span></div>
+          <div class="thumb" data-view="lifestyle"><div class="thumb-bg" style="background:linear-gradient(150deg,#F8FAF9,#D8EAE4);"></div><span class="thumb-label">Lifestyle</span></div>
+        </div>
+      </div>
+      <!-- INFO -->
+      <div class="info-col">
+        <a href="/shop" class="back-link">← Back to Shop</a>
+        <div class="eyebrow" id="prodEyebrow">Hand Care · Office Essential</div>
+        <h1 class="product-title" id="prodTitle">GEAN<br>Hand Cream</h1>
+        <div class="product-subtitle" id="prodSubtitle">ครีมมือ — สูตรออฟฟิศเอสเซนเชียล · 30 ml</div>
+        <div class="info-rule"></div>
+        <div class="price-row">
+          <span class="price-main" id="prodPrice">฿390</span>
+          <span class="price-unit" id="prodUnit">/ 30 ml</span>
+        </div>
+        <div class="stock-row" id="prodStock">
+          <span class="stock-dot"></span>In stock — ships within 1–3 days
+        </div>
+        <div class="info-rule"></div>
+
+        <!-- TABS -->
+        <nav class="tab-nav" role="tablist">
+          <button class="tab-btn active" data-tab="overview" role="tab" aria-selected="true">Overview</button>
+          <button class="tab-btn" data-tab="ingredients" role="tab" aria-selected="false">Ingredients</button>
+          <button class="tab-btn" data-tab="ritual" role="tab" aria-selected="false">The Ritual</button>
+        </nav>
+
+        <div class="tab-pane active" id="tab-overview">
+          <p class="desc-text" id="prodDescEn">A luxurious hand cream crafted for the modern professional. Our zero-greasiness formula absorbs instantly while delivering deep nourishment throughout the working day.</p>
+          <p class="desc-text-th" id="prodDescTh">ครีมมือสุดหรูที่ออกแบบมาสำหรับมืออาชีพยุคใหม่ สูตรไม่เหนียวมัน ซึมซาบทันที</p>
+        </div>
+
+        <div class="tab-pane" id="tab-ingredients">
+          <ul class="ingredient-list" id="ingredientList">
+            <!-- Rendered by JS -->
+          </ul>
+        </div>
+
+        <div class="tab-pane" id="tab-ritual">
+          <div class="ritual-steps">
+            <div class="ritual-step"><span class="step-num">01</span><p class="step-text">Dispense a pea-sized amount onto the back of your hand — after washing, after sanitising, or whenever you pause to breathe.</p></div>
+            <div class="ritual-step"><span class="step-num">02</span><p class="step-text">Massage with slow, deliberate strokes into both hands, working the formula into the cuticle lines and knuckles.</p></div>
+            <div class="ritual-step"><span class="step-num">03</span><p class="step-text">Allow 20–30 seconds for full absorption. No residue, no disruption. Return to your keyboard, completely restored.</p></div>
+            <div class="ritual-step"><span class="step-num">04</span><p class="step-text">Repeat as often as needed — designed for every few hours of desk work, every hand wash, every quiet moment.</p></div>
+          </div>
+        </div>
+
+        <div class="cta-stack">
+          <button class="btn-primary" id="addToCartBtn" style="width:100%;padding:18px;font-size:11px;letter-spacing:0.22em;"><span>Add to Cart</span></button>
+          <a href="/contact" class="btn-ghost">สั่งซื้อผ่าน LINE</a>
+        </div>
+
+        <div class="trust-strip">
+          <div class="trust-item"><span class="trust-label">Zero Greasy</span><span class="trust-sub">Absorbs instantly</span></div>
+          <div class="trust-item"><span class="trust-label">Derm Tested</span><span class="trust-sub">Clinically verified</span></div>
+          <div class="trust-item"><span class="trust-label">1–3 Day Ship</span><span class="trust-sub">Nationwide delivery</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- CRAFTED WITH -->
+<section class="crafted-section">
+  <div class="crafted-inner">
+    <span class="section-eyebrow">Formulation</span>
+    <h2 class="section-title-light">Crafted with intention</h2>
+    <div class="ing-grid" id="ingGrid">
+      <div class="ing-card"><span class="ing-num">01</span><div class="ing-card-name">95% Squalane Extract</div><p class="ing-card-desc">Plant-derived and nearly identical to your skin's own sebum. Absorbs without residue, hydrates without clogging.</p></div>
+      <div class="ing-card"><span class="ing-num">02</span><div class="ing-card-name">Ceramide Complex</div><p class="ing-card-desc">Your skin barrier rebuilt. Ceramides seal moisture in at the cellular level, countering the drying effects of air-conditioning.</p></div>
+      <div class="ing-card"><span class="ing-num">03</span><div class="ing-card-name">Damask Rose</div><p class="ing-card-desc">Harvested at dawn when petals are richest in volatile oils. Anti-inflammatory, calming, and the quiet heart of GEAN's signature scent.</p></div>
+      <div class="ing-card"><span class="ing-num">04</span><div class="ing-card-name">D-Panthenol</div><p class="ing-card-desc">Pro-vitamin B5. Penetrates deeply to repair micro-damage, reduce redness, and restore suppleness to hands that work hard every day.</p></div>
+      <div class="ing-card"><span class="ing-num">05</span><div class="ing-card-name">Green Tea &amp; White Tea</div><p class="ing-card-desc">A curated antioxidant pairing. Green tea defends against free radicals; white tea refines and protects.</p></div>
+      <div class="ing-card"><span class="ing-num">06</span><div class="ing-card-name">The Scent</div><p class="ing-card-desc">Warm, focused, unobtrusive. Designed not to compete with your workspace — a quiet presence that signals care without demanding attention.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- THE RITUAL -->
+<section class="ritual-section">
+  <div class="ritual-inner">
+    <div class="ritual-header">
+      <span class="section-eyebrow" style="color:var(--tan);">Usage</span>
+      <h2 class="section-title-dark">The ritual</h2>
+    </div>
+    <div class="ritual-grid">
+      <div><span class="ritual-num">01</span><div class="ritual-title">Apply</div><p class="ritual-text">A pea-sized amount is all it takes. Dispense onto the back of your hand after washing or after using hand sanitiser.</p></div>
+      <div><span class="ritual-num">02</span><div class="ritual-title">Massage</div><p class="ritual-text">Work the cream in with slow, deliberate strokes. Pay attention to the cuticles and knuckles — the areas most prone to dryness.</p></div>
+      <div><span class="ritual-num">03</span><div class="ritual-title">Continue</div><p class="ritual-text">Twenty seconds to full absorption. No residue. No disruption. Return to your keyboard, your meeting, your day — hands quietly restored.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- RELATED PRODUCTS -->
+<section class="related-section">
+  <div class="related-inner">
+    <div class="related-header">
+      <div><span class="section-eyebrow">Collection</span><h2 class="section-title-dark" style="font-size:28px;">You may also like</h2></div>
+      <a href="/shop" class="view-all-link">View All →</a>
+    </div>
+    <div class="related-grid" id="relatedGrid">
+      <!-- Rendered by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-main">
+    <div class="footer-brand">
+      <img src="/asset/image/LOGO_GEAN.png" alt="GEAN">
+      <p class="footer-tagline">Beyond moisture. A sanctuary for your hands. Premium hand care for the modern professional.</p>
+      <div class="footer-social">
+        <a href="https://lin.ee/9KbETXv" target="_blank" rel="noopener" class="social-btn">LINE</a>
+        <a href="https://www.instagram.com/gean.officially" target="_blank" rel="noopener" class="social-btn">IG</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-label">Navigate</div>
+      <a href="/shop">Shop</a><a href="/our-story">Our Story</a><a href="/article">Article</a><a href="/contact">Contact Us</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-label">Contact</div>
+      <a href="https://lin.ee/9KbETXv" target="_blank" rel="noopener">LINE @gean.officially</a>
+      <a href="https://www.instagram.com/gean.officially" target="_blank" rel="noopener">Instagram @gean.officially</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 GEAN. All rights reserved.</span>
+    <span>Hand care for the modern professional.</span>
+  </div>
+</footer>
+
+<script src="/js/api.js"></script>
+<script src="/js/cart.js"></script>
+<script src="/js/navbar.js"></script>
+<script src="/js/pages/product-detail.js"></script>
+</body>
+</html>

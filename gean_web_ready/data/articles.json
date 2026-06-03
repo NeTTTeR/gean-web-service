@@ -1,0 +1,74 @@
+[
+  {
+    "id": "why-squalane-gold-standard",
+    "titleEn": "Why Squalane is the Gold Standard for Hand Hydration",
+    "titleTh": "ทำไม Squalane ถึงเป็นมาตรฐานทองคำสำหรับการบำรุงมือ",
+    "excerptEn": "Discover why 95% Squalane Extract has become the most sought-after ingredient in premium skincare, and how GEAN harnesses its power.",
+    "excerptTh": "ค้นพบว่าทำไม Squalane 95% จึงกลายเป็นส่วนผสมที่ต้องการมากที่สุดในสกินแคร์พรีเมียม",
+    "thumbnailUrl": "/asset/image/articles/squalane-hero.jpg",
+    "category": "Skincare",
+    "readTimeMinutes": 5,
+    "publishedAt": "2026-05-20",
+    "featured": true
+  },
+  {
+    "id": "office-routine-productivity",
+    "titleEn": "The Office Routine: How Hand Care Boosts Productivity",
+    "titleTh": "กิจวัตรในออฟฟิศ: การดูแลมือช่วยเพิ่มประสิทธิภาพการทำงานได้อย่างไร",
+    "excerptEn": "Research shows that a simple hand care ritual during the workday can significantly reduce stress levels and improve focus.",
+    "excerptTh": "งานวิจัยแสดงว่าการดูแลมืออย่างง่ายในระหว่างวันทำงานช่วยลดความเครียดและเพิ่มสมาธิได้อย่างมีนัยสำคัญ",
+    "thumbnailUrl": "/asset/image/articles/office-routine.jpg",
+    "category": "Wellness",
+    "readTimeMinutes": 4,
+    "publishedAt": "2026-05-15",
+    "featured": false
+  },
+  {
+    "id": "damask-rose-skincare",
+    "titleEn": "The Magic of Damask Rose in Modern Skincare",
+    "titleTh": "ความมหัศจรรย์ของดอกโรสดามัสก์ในสกินแคร์สมัยใหม่",
+    "excerptEn": "For centuries, Damask Rose has been prized for its skin-healing properties. We explore the science behind this ancient ingredient.",
+    "excerptTh": "มานานหลายศตวรรษ ดอกโรสดามัสก์ได้รับการยกย่องในด้านคุณสมบัติการรักษาผิว เราสำรวจวิทยาศาสตร์เบื้องหลัง",
+    "thumbnailUrl": "/asset/image/articles/damask-rose.jpg",
+    "category": "Ingredients",
+    "readTimeMinutes": 6,
+    "publishedAt": "2026-05-10",
+    "featured": false
+  },
+  {
+    "id": "green-tea-white-tea-antioxidants",
+    "titleEn": "Green Tea & White Tea: Antioxidant Powerhouses for Skin",
+    "titleTh": "ชาเขียวและชาขาว: พลังต้านอนุมูลอิสระเพื่อผิว",
+    "excerptEn": "Two of nature's most potent antioxidants work together in GEAN's formula to protect your hands from environmental stressors.",
+    "excerptTh": "สารต้านอนุมูลอิสระที่ทรงพลังที่สุดในธรรมชาติสองชนิดทำงานร่วมกันในสูตร GEAN",
+    "thumbnailUrl": "/asset/image/articles/green-white-tea.jpg",
+    "category": "Ingredients",
+    "readTimeMinutes": 4,
+    "publishedAt": "2026-05-05",
+    "featured": false
+  },
+  {
+    "id": "ceramide-skin-barrier",
+    "titleEn": "Ceramide Complex: The Building Blocks of Healthy Skin Barrier",
+    "titleTh": "เซราไมด์ คอมเพล็กซ์: รากฐานของเกราะผิวที่แข็งแกร่ง",
+    "excerptEn": "Understanding how Ceramides work to repair and maintain the skin's protective barrier against the office environment.",
+    "excerptTh": "ทำความเข้าใจว่าเซราไมด์ทำงานอย่างไรในการซ่อมแซมและรักษาเกราะป้องกันผิว",
+    "thumbnailUrl": "/asset/image/articles/ceramide.jpg",
+    "category": "Science",
+    "readTimeMinutes": 5,
+    "publishedAt": "2026-05-01",
+    "featured": false
+  },
+  {
+    "id": "hand-care-habits-professionals",
+    "titleEn": "5 Hand Care Habits Every Professional Should Have",
+    "titleTh": "5 นิสัยดูแลมือที่ทุกมืออาชีพควรมี",
+    "excerptEn": "Simple, sustainable habits that protect and nourish your hands through the demanding workday.",
+    "excerptTh": "นิสัยง่ายๆ ที่ยั่งยืนซึ่งปกป้องและบำรุงมือของคุณตลอดวันทำงานที่เต็มไปด้วยความต้องการ",
+    "thumbnailUrl": "/asset/image/articles/habits.jpg",
+    "category": "Lifestyle",
+    "readTimeMinutes": 3,
+    "publishedAt": "2026-04-25",
+    "featured": false
+  }
+]

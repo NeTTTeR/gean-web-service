@@ -1,0 +1,30 @@
+1. Go to web-starter-kit folder
+2. Init git
+3. Init CLAUDE.md / Agent.md
+4. Create docs folder
+5. Write an initial requirement in docs/initial-requirement.md.
+6. Run prompt 1-4
+7. Delete initial-requirement.md
+8. Copy ui-prototypes to project
+9. Run prompt 5
+10. Delete ui-requirement.md, also ensure that there are only single source of truth. E.g. ui-prototypes/ folder should contains only the single latest version of the UI screen to prevent ambiguous for implementation.
+11. Run prompt 6
+12. Run prompt 7 (Thinking mode, Opus 4.5 model)
+13. Run prompt 8 (Thinking mode, Opus 4.5 model)
+14. Instruct AI to review the code
+15. Instruct AI to fix all build issues (if any)
+16. Run prompt 9
+17. Run prompt 10
+18. Run prompt 11
+19. Run prompt 12
+20. Run prompt 13
+21. Run prompt 14
+22. Run prompt 15
+23. Run prompt 16
+
+Extra1: [Atlassian MCP] Update document into Confluence page.
+Extra2: [Atlassian MCP] Do an impact analysis for this JIRA task.
+Extra3: [Playwright MCP] Run a manual UI tests. The server has been already started at http://localhost:3003
+Extra4: Run /security-review in Claude Code
+Extra5: Instruct AI to do performance Tuning
+Extra6: Instruct AI to do migration from COBOL

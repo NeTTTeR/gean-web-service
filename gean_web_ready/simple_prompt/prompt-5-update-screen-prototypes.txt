@@ -1,0 +1,5 @@
+Review the UI screen prototypes located at:
+- `ui-prototypes/dashboard.html`
+- `ui-prototypes/project-setup.html`
+
+Then update the UI requirements document at `docs/ui-requirement.md` to accurately reflect the HTML prototypes from the UI/UX team.

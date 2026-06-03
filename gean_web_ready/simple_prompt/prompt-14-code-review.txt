@@ -1,0 +1,1 @@
+Do a code review on this codebase to make sure that this codebase has a good code quality, well-defined code structure, and there are no duplicated code.

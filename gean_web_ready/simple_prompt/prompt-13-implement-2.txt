@@ -1,0 +1,1 @@
+Per the new requirement in @docs/requirement-2.md and updated @docs/technical-spec.md  , please help implement the new requirement and make code catch up all changes in the technical spec.

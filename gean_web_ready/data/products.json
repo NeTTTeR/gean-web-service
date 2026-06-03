@@ -1,0 +1,84 @@
+[
+  {
+    "id": "gean-hand-cream-30ml",
+    "nameEn": "GEAN Hand Cream",
+    "nameTh": "ครีมบำรุงมือ เจียน สูตรออฟฟิศเอสเซนเชียล",
+    "priceSatang": 39000,
+    "currency": "THB",
+    "descriptionEn": "A luxurious hand cream crafted for the modern professional. Our zero-greasiness formula absorbs instantly while delivering deep nourishment to restore and protect your skin barrier throughout the working day. The calming, focus-forward scent — a considered blend of green tea, white tea, and Damask rose — grounds the mind without distraction. A quiet ritual in a single gesture.",
+    "descriptionTh": "ครีมมือสุดหรูที่ออกแบบมาสำหรับมืออาชีพยุคใหม่ สูตรไม่เหนียวมัน ซึมซาบทันทีพร้อมมอบความชุ่มชื้นระดับลึกเพื่อฟื้นฟูและปกป้องเกราะผิวตลอดวันทำงาน กลิ่นหอมที่ผ่อนคลายและช่วยเพิ่มสมาธิ ผสมผสานจากชาเขียว ชาขาว และดอกโรสดามัสก์ ช่วยให้จิตใจสงบโดยไม่รบกวนสมาธิ",
+    "images": [],
+    "ingredients": [
+      {
+        "nameEn": "95% Squalane Extract",
+        "nameTh": "สควาเลน สกัด 95%",
+        "descriptionEn": "Plant-derived squalane that mirrors skin's own lipids — delivering instant moisture without occlusion or shine."
+      },
+      {
+        "nameEn": "Ceramide Complex",
+        "nameTh": "เซราไมด์ คอมเพล็กซ์",
+        "descriptionEn": "Reinforces the skin barrier at the cellular level, sealing moisture in and keeping environmental aggressors out."
+      },
+      {
+        "nameEn": "D-Panthenol (DAPF)",
+        "nameTh": "ดี-แพนทีนอล",
+        "descriptionEn": "Pro-vitamin B5 that penetrates deeply to soothe, repair micro-damage, and restore suppleness to work-weary hands."
+      },
+      {
+        "nameEn": "Premium Green Tea Extract",
+        "nameTh": "สารสกัดชาเขียวพรีเมียม",
+        "descriptionEn": "Rich in EGCG polyphenols that neutralise free radicals and defend against the oxidative stress of daily screen time."
+      },
+      {
+        "nameEn": "White Tea Essence",
+        "nameTh": "เอสเซนส์ชาขาว",
+        "descriptionEn": "Rarer than green tea, with a higher concentration of protective antioxidants and a softer, more refined character."
+      },
+      {
+        "nameEn": "Damask Rose",
+        "nameTh": "ดอกโรสดามัสก์",
+        "descriptionEn": "Anti-inflammatory, deeply hydrating, and the heart of GEAN's signature calming scent."
+      }
+    ],
+    "inStock": true,
+    "badge": "New",
+    "comingSoon": false,
+    "category": "Hand Care",
+    "variantLabel": "Office Essential · 30ml",
+    "createdAt": "2026-01-15"
+  },
+  {
+    "id": "gean-body-serum",
+    "nameEn": "GEAN Body Serum",
+    "nameTh": "เจียน บอดี้ เซรั่ม",
+    "priceSatang": 0,
+    "currency": "THB",
+    "descriptionEn": "Coming soon. A nourishing body serum with the same zero-greasiness philosophy.",
+    "descriptionTh": "เร็วๆ นี้ เซรั่มบำรุงผิวกายสูตรพิเศษ ไม่เหนียว ซึมซาบทันที",
+    "images": [],
+    "ingredients": [],
+    "inStock": false,
+    "badge": "Coming Soon",
+    "comingSoon": true,
+    "category": "Body Care",
+    "variantLabel": "Nourishing Formula",
+    "createdAt": "2026-06-01"
+  },
+  {
+    "id": "gean-lip-balm",
+    "nameEn": "GEAN Lip Balm",
+    "nameTh": "เจียน ลิปบาล์ม",
+    "priceSatang": 0,
+    "currency": "THB",
+    "descriptionEn": "Coming soon. Hydrating lip care crafted with the same attention to detail.",
+    "descriptionTh": "เร็วๆ นี้ ลิปบาล์มให้ความชุ่มชื้น",
+    "images": [],
+    "ingredients": [],
+    "inStock": false,
+    "badge": "Coming Soon",
+    "comingSoon": true,
+    "category": "Lip Care",
+    "variantLabel": "Hydrating Formula",
+    "createdAt": "2026-06-01"
+  }
+]

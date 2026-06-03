@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GEAN — Why Squalane is the Gold Standard for Hand Hydration</title>
+<style>
+@font-face{font-family:'Montserrat';src:url('../asset/font/Montserrat/Montserrat-VariableFont_wght.ttf') format('truetype');font-weight:100 900;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Montserrat';src:url('../asset/font/Montserrat/Montserrat-Italic-VariableFont_wght.ttf') format('truetype');font-weight:100 900;font-style:italic;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Sarabun';src:url('../asset/font/Sarabun/Sarabun-VariableFont_wght.ttf') format('truetype');font-weight:100 900;font-style:normal;font-display:swap;unicode-range:U+0E00-0E7F;}
+@font-face{font-family:'Sarabun';src:url('../asset/font/Sarabun/Sarabun-Italic-VariableFont_wght.ttf') format('truetype');font-weight:100 900;font-style:italic;font-display:swap;unicode-range:U+0E00-0E7F;}
+:root{
+  --navy:#2A4A3E;--navy-dark:#1C3530;--navy-900:#111D1A;
+  --tan:#CFAB8D;--tan-light:#E8D5C0;--tan-dark:#B8956F;
+  --sage:#CCE1D9;--cream:#F5FAF8;--white:#FFFFFF;
+  --text:#1A1A1A;--text-soft:#3D3D3D;--muted:#7A7A7A;--border:#D8EAE4;
+  --sh-sm:0 4px 16px rgba(0,0,0,0.07);--sh-md:0 8px 32px rgba(0,0,0,0.10);--sh-lg:0 20px 60px rgba(0,0,0,0.14);
+  --r-sm:8px;--r:16px;--r-lg:24px;--r-xl:40px;
+  --ease-out:cubic-bezier(0.22,1,0.36,1);
+  --sv:clamp(60px,6vw,90px);--sh:clamp(20px,4vw,56px);--mw:1100px;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+button,input,select,textarea{font-family:'Montserrat','Sarabun',sans-serif;}
+body{font-family:'Montserrat','Sarabun',sans-serif;background:var(--cream);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+img{max-width:100%;display:block;}
+a{text-decoration:none;color:inherit;}
+
+/* NAVBAR */
+.navbar{position:sticky;top:0;z-index:100;background:rgba(245,250,248,0.92);backdrop-filter:blur(20px) saturate(1.5);-webkit-backdrop-filter:blur(20px) saturate(1.5);border-bottom:1px solid var(--border);padding:0 var(--sh);height:64px;display:flex;align-items:center;justify-content:space-between;}
+.navbar::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--sage),var(--tan),var(--sage));}
+.nav-logo img{height:34px;}
+.nav-links{display:flex;gap:36px;list-style:none;}
+.nav-links a{font-size:10px;font-weight:500;color:var(--muted);letter-spacing:0.18em;text-transform:uppercase;transition:color 0.2s;position:relative;padding-bottom:2px;}
+.nav-links a::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:1px;background:var(--tan);transform:scaleX(0);transform-origin:left;transition:transform 0.3s var(--ease-out);}
+.nav-links a:hover{color:var(--navy);}
+.nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);}
+.nav-links a.active{color:var(--navy);}
+.nav-right{display:flex;align-items:center;gap:8px;}
+.btn-nav-cta{background:var(--navy);color:var(--white);border:none;padding:8px 20px;border-radius:var(--r-xl);font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;cursor:pointer;transition:all 0.3s var(--ease-out);position:relative;overflow:hidden;}
+.btn-nav-cta::before{content:'';position:absolute;inset:0;background:var(--tan);transform:translateX(-101%);transition:transform 0.3s var(--ease-out);}
+.btn-nav-cta:hover::before{transform:translateX(0);}
+.btn-nav-cta span{position:relative;z-index:1;}
+.menu-toggle{display:none;background:none;border:none;cursor:pointer;width:38px;height:38px;border-radius:50%;align-items:center;justify-content:center;color:var(--navy);transition:background 0.2s;}
+.menu-toggle:hover{background:var(--border);}
+.menu-toggle svg{width:18px;height:18px;}
+.mobile-nav{display:none;position:fixed;inset:0;z-index:99;}
+.mobile-nav.open{display:block;}
+.mobile-nav-backdrop{position:absolute;inset:0;background:rgba(0,0,0,0.5);backdrop-filter:blur(4px);}
+.mobile-nav-panel{position:absolute;top:0;right:0;bottom:0;width:280px;background:var(--white);padding:80px 32px 40px;display:flex;flex-direction:column;gap:4px;}
+.mobile-nav-panel a{font-size:12px;font-weight:600;color:var(--navy);letter-spacing:0.1em;text-transform:uppercase;padding:14px 0;border-bottom:1px solid var(--border);}
+.mobile-nav-panel .btn-nav-cta{margin-top:16px;text-align:center;display:block;padding:12px 20px;}
+
+/* ARTICLE HERO */
+.article-hero{
+  background:radial-gradient(circle 500px at 14% 70%,rgba(204,225,217,0.16) 0%,transparent 58%),radial-gradient(ellipse at 78% 32%,rgba(207,171,141,0.15) 0%,transparent 55%),linear-gradient(150deg,var(--navy) 0%,var(--navy-dark) 100%);
+  padding:80px var(--sh) 72px;position:relative;overflow:hidden;
+}
+.article-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(204,225,217,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(204,225,217,0.03) 1px,transparent 1px);background-size:80px 80px;}
+.article-hero::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:80px;background:linear-gradient(to top,var(--cream),transparent);}
+.hero-inner{max-width:var(--mw);margin:0 auto;position:relative;z-index:2;}
+.back-link-top{display:inline-flex;align-items:center;gap:8px;font-size:10px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.45);transition:color 0.2s;margin-bottom:32px;}
+.back-link-top::before{content:'←';font-size:12px;}
+.back-link-top:hover{color:var(--tan);}
+.hero-cat{display:inline-block;font-size:9px;font-weight:700;color:var(--white);background:rgba(207,171,141,0.25);backdrop-filter:blur(8px);padding:5px 14px;border-radius:var(--r-xl);letter-spacing:0.16em;text-transform:uppercase;margin-bottom:20px;}
+.hero-title{font-size:clamp(28px,4vw,52px);font-weight:800;color:var(--white);line-height:1.15;max-width:720px;margin-bottom:20px;}
+.hero-meta{display:flex;align-items:center;gap:16px;font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:0.08em;}
+.meta-dot{width:3px;height:3px;border-radius:50%;background:var(--tan);opacity:0.6;}
+.meta-date{color:var(--tan);}
+
+/* LANG TABS */
+.lang-tabs-wrap{max-width:var(--mw);margin:0 auto;padding:28px var(--sh) 0;}
+.lang-tabs{display:flex;gap:8px;}
+.lang-tab{font-size:10px;font-weight:700;padding:7px 18px;border-radius:var(--r-xl);border:1.5px solid transparent;cursor:pointer;transition:all 0.2s;letter-spacing:0.1em;text-transform:uppercase;}
+.lang-tab.active-en{background:var(--navy);color:var(--white);border-color:var(--navy);}
+.lang-tab.active-th{background:var(--tan);color:var(--white);border-color:var(--tan);}
+.lang-tab:not(.active-en):not(.active-th){border-color:var(--border);color:var(--muted);background:var(--white);}
+.lang-tab:hover:not(.active-en):not(.active-th){border-color:var(--navy);color:var(--navy);}
+
+/* ARTICLE LAYOUT */
+.article-layout{max-width:var(--mw);margin:0 auto;padding:40px var(--sh) 80px;display:grid;grid-template-columns:1fr 300px;gap:56px;align-items:start;}
+
+/* BODY TEXT */
+.article-body-en,.article-body-th{font-size:15px;line-height:2;color:var(--text-soft);}
+.article-body-th{display:none;}
+.article-body-en h2,.article-body-th h2{font-size:20px;font-weight:800;color:var(--navy);margin:36px 0 16px;letter-spacing:0.01em;}
+.article-body-en p,.article-body-th p{margin-bottom:22px;}
+.article-body-en blockquote,.article-body-th blockquote{border-left:3px solid var(--tan);padding:16px 28px;background:rgba(204,225,217,0.15);font-size:15px;font-style:italic;color:var(--navy);margin:28px 0;line-height:1.8;}
+.inline-img{background:linear-gradient(150deg,#D8EEE7,#9DBDB2);border-radius:var(--r);padding:48px;text-align:center;margin:32px 0;display:flex;align-items:center;justify-content:center;min-height:160px;position:relative;overflow:hidden;}
+.inline-img::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 35% 30%,rgba(255,255,255,0.22) 0%,transparent 55%);}
+.inline-img-label{position:relative;z-index:1;font-size:11px;font-weight:600;color:var(--navy);letter-spacing:0.22em;text-transform:uppercase;opacity:0.35;}
+.back-link-bottom{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;color:var(--navy);border:2px solid var(--navy);padding:12px 28px;border-radius:var(--r-xl);margin-top:44px;transition:all 0.3s var(--ease-out);position:relative;overflow:hidden;}
+.back-link-bottom::before{content:'';position:absolute;inset:0;background:var(--navy);transform:scaleX(0);transform-origin:left;transition:transform 0.3s var(--ease-out);}
+.back-link-bottom:hover{color:var(--white);}
+.back-link-bottom:hover::before{transform:scaleX(1);}
+.back-link-bottom span{position:relative;z-index:1;}
+
+/* SIDEBAR */
+.sidebar{position:sticky;top:80px;}
+.sidebar-card{background:var(--white);border-radius:var(--r);box-shadow:var(--sh-sm);padding:24px;margin-bottom:20px;border-top:2px solid var(--sage);}
+.sidebar-title{font-size:11px;font-weight:800;color:var(--navy);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:18px;}
+.related-article{display:flex;gap:12px;margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--border);align-items:flex-start;}
+.related-article:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none;}
+.related-thumb{width:52px;height:52px;border-radius:var(--r-sm);flex-shrink:0;}
+.related-title{font-size:11px;font-weight:700;color:var(--navy);line-height:1.4;margin-bottom:3px;}
+.related-date{font-size:9px;color:var(--muted);}
+.cta-card{background:linear-gradient(150deg,var(--navy),var(--navy-dark));border-radius:var(--r);padding:28px 24px;text-align:center;border-top:2px solid var(--sage);}
+.cta-title{font-size:15px;font-weight:800;color:var(--white);margin-bottom:8px;}
+.cta-desc{font-size:12px;color:rgba(255,255,255,0.55);margin-bottom:22px;line-height:1.7;}
+.btn-cta{background:var(--tan);color:var(--white);border:none;padding:11px 22px;border-radius:var(--r-xl);font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;text-decoration:none;display:inline-block;transition:all 0.25s;}
+.btn-cta:hover{background:var(--tan-dark);}
+
+/* FOOTER */
+.footer{background:var(--navy-dark);padding:80px var(--sh) 36px;border-top:3px solid var(--sage);position:relative;overflow:hidden;}
+.footer::before{content:'GEAN';position:absolute;bottom:-40px;right:-20px;font-size:240px;font-weight:800;color:rgba(255,255,255,0.02);line-height:1;letter-spacing:-0.02em;pointer-events:none;}
+.footer-main{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.8fr 1fr 1fr;gap:64px;padding-bottom:52px;border-bottom:1px solid rgba(255,255,255,0.07);position:relative;}
+.footer-brand img{height:32px;margin-bottom:18px;filter:brightness(0) invert(1);}
+.footer-tagline{font-size:12px;color:rgba(255,255,255,0.35);line-height:1.9;max-width:240px;margin-bottom:28px;}
+.footer-social{display:flex;gap:8px;}
+.social-btn{width:38px;height:38px;border-radius:var(--r-sm);border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.5);font-size:10px;font-weight:700;letter-spacing:0.05em;transition:all 0.25s;}
+.social-btn:hover{border-color:var(--tan);color:var(--tan);background:rgba(207,171,141,0.08);}
+.footer-col-label{font-size:9px;font-weight:700;color:var(--tan);letter-spacing:0.3em;text-transform:uppercase;margin-bottom:20px;}
+.footer-col a{display:block;font-size:12px;color:rgba(255,255,255,0.42);margin-bottom:12px;transition:color 0.2s;}
+.footer-col a:hover{color:var(--white);}
+.footer-bottom{max-width:1200px;margin:0 auto;padding-top:28px;display:flex;justify-content:space-between;align-items:center;font-size:10px;color:rgba(255,255,255,0.18);letter-spacing:0.04em;position:relative;}
+
+@media(max-width:900px){.article-layout{grid-template-columns:1fr;}.sidebar{position:static;}.footer-main{grid-template-columns:1fr 1fr;}.footer-brand{grid-column:1/-1;}}
+@media(max-width:600px){.navbar{padding:0 20px;}.nav-links{display:none;}.menu-toggle{display:flex;}.article-layout{padding:32px 20px 60px;}.lang-tabs-wrap{padding:24px 20px 0;}.article-hero{padding:64px 20px 56px;}.footer{padding-left:20px;padding-right:20px;}.footer-main{grid-template-columns:1fr;gap:36px;}.footer-bottom{flex-direction:column;gap:8px;}}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <a href="home.html" class="nav-logo"><img src="../asset/image/LOGO_GEAN.png" alt="GEAN"></a>
+  <ul class="nav-links">
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="our-story.html">Our Story</a></li>
+    <li><a href="article.html" class="active">Article</a></li>
+    <li><a href="contact.html">Contact Us</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="contact.html" class="btn-nav-cta"><span>Buy Now</span></a>
+    <button class="menu-toggle" onclick="toggleMenu()" aria-label="Menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav-backdrop" onclick="toggleMenu()"></div>
+  <nav class="mobile-nav-panel">
+    <a href="shop.html" onclick="toggleMenu()">Shop</a>
+    <a href="our-story.html" onclick="toggleMenu()">Our Story</a>
+    <a href="article.html" onclick="toggleMenu()">Article</a>
+    <a href="contact.html" onclick="toggleMenu()">Contact Us</a>
+    <a href="contact.html" class="btn-nav-cta"><span>Buy Now</span></a>
+  </nav>
+</div>
+
+<!-- ARTICLE HERO -->
+<div class="article-hero">
+  <div class="hero-inner">
+    <a href="article.html" class="back-link-top">← Back to Articles</a>
+    <div class="hero-cat">Skincare</div>
+    <h1 class="hero-title">Why Squalane is the Gold Standard for Hand Hydration</h1>
+    <div class="hero-meta">
+      <span class="meta-date">20 May 2026</span>
+      <span class="meta-dot"></span>
+      <span>5 min read</span>
+      <span class="meta-dot"></span>
+      <span>Skincare Science</span>
+    </div>
+  </div>
+</div>
+
+<!-- LANG TABS -->
+<div class="lang-tabs-wrap">
+  <div class="lang-tabs">
+    <button class="lang-tab active-en" onclick="showLang('en')">English</button>
+    <button class="lang-tab" onclick="showLang('th')">ภาษาไทย</button>
+  </div>
+</div>
+
+<!-- ARTICLE LAYOUT -->
+<div class="article-layout">
+  <!-- MAIN CONTENT -->
+  <div>
+    <!-- ENGLISH -->
+    <div class="article-body-en" id="bodyEn">
+      <p>In the crowded world of skincare ingredients, few have earned as much acclaim — or as much scientific backing — as Squalane. Originally derived from shark liver oil (and now sustainably sourced from sugarcane), this lightweight, odourless oil has become the cornerstone of premium moisturising formulas worldwide.</p>
+
+      <blockquote>"Squalane is the closest thing to our skin's own natural sebum, which is why it absorbs so quickly and feels completely invisible." — GEAN Research Team</blockquote>
+
+      <h2>What Makes Squalane Different?</h2>
+      <p>Unlike many moisturisers that sit on top of the skin or leave a greasy residue, Squalane penetrates deeply into the epidermis. Its molecular structure — nearly identical to our skin's natural oils — means it's recognised and accepted by the skin barrier without triggering excess sebum production.</p>
+      <p>For hand care specifically, this matters enormously. Hands are washed more frequently than any other body part, constantly stripping away their natural protective oils. Squalane works to replenish what's lost, restoring suppleness and preventing the micro-cracks that lead to roughness and irritation.</p>
+
+      <div class="inline-img"><span class="inline-img-label">GEAN Ingredient Study</span></div>
+
+      <h2>The GEAN Difference: 95% Squalane</h2>
+      <p>Most hand creams on the market contain Squalane at concentrations between 1–5%. GEAN's formulation uses 95% Squalane Extract as the primary active ingredient — a concentration that delivers visible results from the first application.</p>
+      <p>Combined with our Ceramide Complex and D-Panthenol, the Squalane in GEAN works synergistically to not only hydrate but to repair and fortify the skin barrier. The result is hands that feel soft immediately, and stay soft long after the cream has absorbed.</p>
+
+      <h2>Zero Greasiness: The Professional Promise</h2>
+      <p>One of the most common complaints about hand creams is the greasy, slippery feeling that makes typing or using touch screens impossible. Squalane's unique lightweight texture eliminates this problem entirely. GEAN absorbs within seconds, leaving hands silky but never sticky — the perfect companion for a demanding workday.</p>
+      <p>Whether you're in back-to-back meetings, working at a keyboard, or shaking hands with a client, GEAN works invisibly so you can focus on what matters most.</p>
+    </div>
+
+    <!-- THAI -->
+    <div class="article-body-th" id="bodyTh">
+      <p>ในโลกของส่วนผสมสกินแคร์ที่มีมากมาย มีไม่กี่ตัวที่ได้รับการยกย่องมากเท่า Squalane ซึ่งเดิมทีสกัดมาจากน้ำมันตับฉลาม (และปัจจุบันได้มาจากอ้อยอย่างยั่งยืน) น้ำมันน้ำหนักเบา ไม่มีกลิ่นนี้ได้กลายเป็นรากฐานของสูตรบำรุงชั้นยอดทั่วโลก</p>
+
+      <blockquote>"Squalane ใกล้เคียงกับน้ำมันธรรมชาติของผิวหนังเรามากที่สุด นั่นคือเหตุผลที่มันซึมซาบได้รวดเร็วและรู้สึกเหมือนมองไม่เห็น" — ทีมวิจัย GEAN</blockquote>
+
+      <h2>อะไรทำให้ Squalane แตกต่าง?</h2>
+      <p>แตกต่างจากครีมบำรุงหลายๆ ตัวที่อยู่บนผิวหนังหรือทิ้งความรู้สึกเหนียวมัน Squalane ซึมลึกเข้าไปในชั้นหนังกำพร้า โครงสร้างโมเลกุลของมัน ใกล้เคียงกับน้ำมันธรรมชาติของผิวหนังเรา หมายความว่าผิวหนังรู้จักและยอมรับมันโดยไม่กระตุ้นการผลิตซีบัมส่วนเกิน</p>
+      <p>สำหรับการดูแลมือโดยเฉพาะ สิ่งนี้มีความสำคัญอย่างมาก มือถูกล้างบ่อยกว่าส่วนอื่นของร่างกาย ซึ่งดึงเอาน้ำมันป้องกันธรรมชาติออกไปตลอดเวลา Squalane ช่วยเติมเต็มสิ่งที่สูญเสียไป</p>
+
+      <h2>ความแตกต่างของ GEAN: Squalane 95%</h2>
+      <p>ครีมมือส่วนใหญ่ในตลาดมี Squalane ในความเข้มข้น 1–5% สูตรของ GEAN ใช้ Squalane Extract 95% เป็นส่วนผสมออกฤทธิ์หลัก ความเข้มข้นที่ให้ผลลัพธ์ที่เห็นได้ชัดตั้งแต่การใช้ครั้งแรก ผสมผสานกับ Ceramide Complex และ D-Panthenol ของเรา ผลลัพธ์คือมือที่รู้สึกนุ่มทันที</p>
+    </div>
+
+    <a href="article.html" class="back-link-bottom"><span>← Back to Articles</span></a>
+  </div>
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-title">Related Articles</div>
+      <div class="related-article">
+        <div class="related-thumb" style="background:linear-gradient(150deg,#D8EEE7,#9DBDB2);"></div>
+        <div>
+          <a href="article-detail.html"><div class="related-title">The Office Routine: How Hand Care Boosts Productivity</div></a>
+          <div class="related-date">15 May 2026</div>
+        </div>
+      </div>
+      <div class="related-article">
+        <div class="related-thumb" style="background:linear-gradient(150deg,#F5EDE4,#E8D0B8);"></div>
+        <div>
+          <a href="article-detail.html"><div class="related-title">The Magic of Damask Rose in Modern Skincare</div></a>
+          <div class="related-date">10 May 2026</div>
+        </div>
+      </div>
+      <div class="related-article">
+        <div class="related-thumb" style="background:linear-gradient(150deg,#D8EEE7,#9DBDB2);"></div>
+        <div>
+          <a href="article-detail.html"><div class="related-title">Green Tea &amp; White Tea: Antioxidant Powerhouses</div></a>
+          <div class="related-date">5 May 2026</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-card">
+      <div class="cta-title">Try GEAN Today</div>
+      <div class="cta-desc">Experience the difference that 95% Squalane makes. Zero greasiness, instant absorption.</div>
+      <a href="shop.html" class="btn-cta">Shop Now</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-main">
+    <div class="footer-brand">
+      <img src="../asset/image/LOGO_GEAN.png" alt="GEAN">
+      <p class="footer-tagline">Beyond moisture. A sanctuary for your hands. Premium hand care for the modern professional.</p>
+      <div class="footer-social">
+        <a href="https://lin.ee/9KbETXv" target="_blank" rel="noopener" class="social-btn">LINE</a>
+        <a href="https://www.instagram.com/gean.officially" target="_blank" rel="noopener" class="social-btn">IG</a>
+      </div>
+    </div>
+    <div class="footer-col"><div class="footer-col-label">Navigate</div><a href="shop.html">Shop</a><a href="our-story.html">Our Story</a><a href="article.html">Article</a><a href="contact.html">Contact Us</a></div>
+    <div class="footer-col"><div class="footer-col-label">Contact</div><a href="https://lin.ee/9KbETXv" target="_blank" rel="noopener">LINE @gean.officially</a><a href="https://www.instagram.com/gean.officially" target="_blank" rel="noopener">Instagram @gean.officially</a></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 GEAN. All rights reserved.</span>
+    <span>Hand care for the modern professional.</span>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.getElementById('mobileNav').classList.toggle('open');}
+function showLang(lang){
+  const en=document.getElementById('bodyEn');
+  const th=document.getElementById('bodyTh');
+  const tabs=document.querySelectorAll('.lang-tab');
+  if(lang==='en'){
+    en.style.display='block';th.style.display='none';
+    tabs[0].className='lang-tab active-en';tabs[1].className='lang-tab';
+  }else{
+    en.style.display='none';th.style.display='block';
+    tabs[0].className='lang-tab';tabs[1].className='lang-tab active-th';
+  }
+}
+</script>
+</body>
+</html>

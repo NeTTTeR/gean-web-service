@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GEAN — Cart</title>
+<style>
+@font-face{font-family:'Montserrat';src:url('../asset/font/Montserrat/Montserrat-VariableFont_wght.ttf') format('truetype');font-weight:100 900;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Montserrat';src:url('../asset/font/Montserrat/Montserrat-Italic-VariableFont_wght.ttf') format('truetype');font-weight:100 900;font-style:italic;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Sarabun';src:url('../asset/font/Sarabun/Sarabun-VariableFont_wght.ttf') format('truetype');font-weight:100 900;font-style:normal;font-display:swap;unicode-range:U+0E00-0E7F;}
+@font-face{font-family:'Sarabun';src:url('../asset/font/Sarabun/Sarabun-Italic-VariableFont_wght.ttf') format('truetype');font-weight:100 900;font-style:italic;font-display:swap;unicode-range:U+0E00-0E7F;}
+:root{
+  --navy:#2A4A3E;--navy-dark:#1C3530;--navy-900:#111D1A;
+  --tan:#CFAB8D;--tan-light:#E8D5C0;--tan-dark:#B8956F;
+  --sage:#CCE1D9;--cream:#F5FAF8;--white:#FFFFFF;
+  --text:#1A1A1A;--muted:#7A7A7A;--border:#D8EAE4;
+  --sh-sm:0 4px 16px rgba(0,0,0,0.07);--sh-md:0 8px 32px rgba(0,0,0,0.10);--sh-lg:0 20px 60px rgba(0,0,0,0.14);
+  --r-sm:8px;--r:16px;--r-lg:24px;--r-xl:40px;
+  --ease-out:cubic-bezier(0.22,1,0.36,1);
+  --sv:clamp(48px,5vw,72px);--sh:clamp(20px,4vw,56px);--mw:1100px;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+button,input,select,textarea{font-family:'Montserrat','Sarabun',sans-serif;}
+body{font-family:'Montserrat','Sarabun',sans-serif;background:var(--cream);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+img{max-width:100%;display:block;}
+a{text-decoration:none;color:inherit;}
+
+/* NAVBAR */
+.navbar{position:sticky;top:0;z-index:100;background:rgba(245,250,248,0.92);backdrop-filter:blur(20px) saturate(1.5);-webkit-backdrop-filter:blur(20px) saturate(1.5);border-bottom:1px solid var(--border);padding:0 var(--sh);height:64px;display:flex;align-items:center;justify-content:space-between;}
+.navbar::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--sage),var(--tan),var(--sage));}
+.nav-logo img{height:34px;}
+.nav-links{display:flex;gap:36px;list-style:none;}
+.nav-links a{font-size:10px;font-weight:500;color:var(--muted);letter-spacing:0.18em;text-transform:uppercase;transition:color 0.2s;position:relative;padding-bottom:2px;}
+.nav-links a::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:1px;background:var(--tan);transform:scaleX(0);transform-origin:left;transition:transform 0.3s var(--ease-out);}
+.nav-links a:hover{color:var(--navy);}
+.nav-links a:hover::after{transform:scaleX(1);}
+.nav-right{display:flex;align-items:center;gap:8px;}
+.btn-nav-cta{background:var(--navy);color:var(--white);border:none;padding:8px 20px;border-radius:var(--r-xl);font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;cursor:pointer;transition:all 0.3s var(--ease-out);position:relative;overflow:hidden;}
+.btn-nav-cta::before{content:'';position:absolute;inset:0;background:var(--tan);transform:translateX(-101%);transition:transform 0.3s var(--ease-out);}
+.btn-nav-cta:hover::before{transform:translateX(0);}
+.btn-nav-cta span{position:relative;z-index:1;}
+.menu-toggle{display:none;background:none;border:none;cursor:pointer;width:38px;height:38px;border-radius:50%;align-items:center;justify-content:center;color:var(--navy);transition:background 0.2s;}
+.menu-toggle:hover{background:var(--border);}
+.menu-toggle svg{width:18px;height:18px;}
+.mobile-nav{display:none;position:fixed;inset:0;z-index:99;}
+.mobile-nav.open{display:block;}
+.mobile-nav-backdrop{position:absolute;inset:0;background:rgba(0,0,0,0.5);backdrop-filter:blur(4px);}
+.mobile-nav-panel{position:absolute;top:0;right:0;bottom:0;width:280px;background:var(--white);padding:80px 32px 40px;display:flex;flex-direction:column;gap:4px;}
+.mobile-nav-panel a{font-size:12px;font-weight:600;color:var(--navy);letter-spacing:0.1em;text-transform:uppercase;padding:14px 0;border-bottom:1px solid var(--border);}
+.mobile-nav-panel .btn-nav-cta{margin-top:16px;text-align:center;display:block;padding:12px 20px;}
+
+/* PAGE HEADER */
+.page-header{
+  background:radial-gradient(circle 400px at 10% 55%,rgba(204,225,217,0.14) 0%,transparent 58%),radial-gradient(circle 300px at 90% 28%,rgba(207,171,141,0.12) 0%,transparent 55%),linear-gradient(150deg,var(--navy) 0%,var(--navy-dark) 100%);
+  padding:56px var(--sh) 52px;position:relative;overflow:hidden;
+}
+.page-header::before{content:'CART';position:absolute;right:-16px;bottom:-48px;font-size:220px;font-weight:800;color:rgba(255,255,255,0.03);line-height:1;letter-spacing:-0.02em;pointer-events:none;}
+.ph-tag{font-size:10px;font-weight:600;color:var(--tan);letter-spacing:0.4em;text-transform:uppercase;margin-bottom:12px;display:block;position:relative;z-index:1;}
+.ph-title{font-size:clamp(36px,5vw,64px);font-weight:800;color:var(--white);letter-spacing:0.08em;text-transform:uppercase;line-height:1.0;position:relative;z-index:1;}
+.ph-title span{font-weight:200;}
+
+/* CART PAGE */
+.cart-page{max-width:var(--mw);margin:0 auto;padding:var(--sv) var(--sh) 80px;}
+.cart-note{font-size:12px;color:var(--muted);margin-bottom:36px;}
+.cart-note a{color:var(--tan);font-weight:600;}
+.cart-layout{display:grid;grid-template-columns:1fr 360px;gap:32px;align-items:start;}
+
+/* ITEMS TABLE */
+.cart-items-card{background:var(--white);border-radius:var(--r-lg);box-shadow:var(--sh-sm);overflow:hidden;}
+.cart-items-head{padding:16px 28px;border-bottom:1px solid var(--border);display:grid;grid-template-columns:2fr 1fr 1fr 40px;gap:16px;font-size:9px;font-weight:700;color:var(--muted);letter-spacing:0.16em;text-transform:uppercase;}
+.cart-item-row{padding:24px 28px;border-bottom:1px solid rgba(0,0,0,0.04);display:grid;grid-template-columns:2fr 1fr 1fr 40px;gap:16px;align-items:center;transition:background 0.2s;}
+.cart-item-row:last-child{border-bottom:none;}
+.cart-item-row:hover{background:rgba(0,0,0,0.015);}
+.item-info{display:flex;gap:16px;align-items:center;}
+.item-thumb{width:68px;height:68px;border-radius:var(--r);background:linear-gradient(150deg,#D8EEE7,#9DBDB2);display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;position:relative;}
+.item-thumb::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 35% 30%,rgba(255,255,255,0.22) 0%,transparent 55%);}
+.item-name{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:3px;}
+.item-variant{font-size:11px;color:var(--muted);}
+.item-unit-price{font-size:13px;color:var(--muted);}
+.qty-control{display:flex;align-items:center;gap:8px;background:var(--cream);border-radius:var(--r-xl);padding:4px 10px;width:fit-content;}
+.qty-btn{background:none;border:none;cursor:pointer;font-size:16px;color:var(--navy);width:24px;height:24px;display:flex;align-items:center;justify-content:center;transition:color 0.2s;}
+.qty-btn:hover{color:var(--tan);}
+.qty-num{font-size:13px;font-weight:700;color:var(--navy);min-width:20px;text-align:center;}
+.item-line-price{font-size:15px;font-weight:700;color:var(--navy);}
+.item-remove{background:none;border:none;cursor:pointer;color:rgba(0,0,0,0.18);width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all 0.2s;font-size:16px;}
+.item-remove:hover{background:rgba(239,68,68,0.08);color:#ef4444;}
+
+/* EMPTY STATE */
+.empty-state{padding:72px 28px;text-align:center;}
+.empty-icon{font-size:56px;margin-bottom:20px;opacity:0.3;}
+.empty-title{font-size:20px;font-weight:800;color:var(--navy);margin-bottom:8px;}
+.empty-desc{font-size:13px;color:var(--muted);margin-bottom:28px;}
+.btn-shop{background:var(--navy);color:var(--white);border:none;padding:12px 28px;border-radius:var(--r-xl);font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;text-decoration:none;display:inline-block;transition:all 0.3s var(--ease-out);position:relative;overflow:hidden;}
+.btn-shop::before{content:'';position:absolute;inset:0;background:var(--tan);transform:translateX(-101%);transition:transform 0.3s var(--ease-out);}
+.btn-shop:hover::before{transform:translateX(0);}
+.btn-shop span{position:relative;z-index:1;}
+
+/* ORDER SUMMARY */
+.summary-card{background:var(--white);border-radius:var(--r-lg);box-shadow:var(--sh-sm);padding:32px;position:sticky;top:80px;border-top:3px solid var(--sage);}
+.summary-title{font-size:16px;font-weight:800;color:var(--navy);margin-bottom:28px;}
+.summary-row{display:flex;justify-content:space-between;align-items:center;font-size:13px;margin-bottom:14px;color:var(--muted);}
+.summary-row.total{border-top:1px solid var(--border);padding-top:16px;margin-top:4px;font-size:18px;font-weight:800;color:var(--navy);}
+.summary-free{font-size:12px;font-weight:700;color:#4A8C5C;}
+.btn-checkout{background:var(--navy);color:var(--white);border:none;padding:17px;border-radius:var(--r-xl);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;cursor:pointer;width:100%;margin-top:24px;transition:all 0.3s var(--ease-out);position:relative;overflow:hidden;}
+.btn-checkout::before{content:'';position:absolute;inset:0;background:var(--tan);transform:translateX(-101%);transition:transform 0.3s var(--ease-out);}
+.btn-checkout:hover::before{transform:translateX(0);}
+.btn-checkout span{position:relative;z-index:1;}
+.continue-link{display:block;text-align:center;margin-top:16px;font-size:11px;color:var(--muted);transition:color 0.2s;}
+.continue-link:hover{color:var(--navy);}
+
+/* TRUST ROW */
+.trust-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border-radius:var(--r-sm);overflow:hidden;margin-top:20px;}
+.trust-item{background:var(--cream);padding:12px 10px;text-align:center;}
+.trust-label{font-size:9px;font-weight:700;color:var(--navy);letter-spacing:0.1em;text-transform:uppercase;display:block;}
+.trust-sub{font-size:9px;color:var(--muted);}
+
+/* FOOTER */
+.footer{background:var(--navy-dark);padding:80px var(--sh) 36px;border-top:3px solid var(--sage);position:relative;overflow:hidden;}
+.footer::before{content:'GEAN';position:absolute;bottom:-40px;right:-20px;font-size:240px;font-weight:800;color:rgba(255,255,255,0.02);line-height:1;letter-spacing:-0.02em;pointer-events:none;}
+.footer-main{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.8fr 1fr 1fr;gap:64px;padding-bottom:52px;border-bottom:1px solid rgba(255,255,255,0.07);position:relative;}
+.footer-brand img{height:32px;margin-bottom:18px;filter:brightness(0) invert(1);}
+.footer-tagline{font-size:12px;color:rgba(255,255,255,0.35);line-height:1.9;max-width:240px;margin-bottom:28px;}
+.footer-social{display:flex;gap:8px;}
+.social-btn{width:38px;height:38px;border-radius:var(--r-sm);border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.5);font-size:10px;font-weight:700;letter-spacing:0.05em;transition:all 0.25s;}
+.social-btn:hover{border-color:var(--tan);color:var(--tan);background:rgba(207,171,141,0.08);}
+.footer-col-label{font-size:9px;font-weight:700;color:var(--tan);letter-spacing:0.3em;text-transform:uppercase;margin-bottom:20px;}
+.footer-col a{display:block;font-size:12px;color:rgba(255,255,255,0.42);margin-bottom:12px;transition:color 0.2s;}
+.footer-col a:hover{color:var(--white);}
+.footer-bottom{max-width:1200px;margin:0 auto;padding-top:28px;display:flex;justify-content:space-between;align-items:center;font-size:10px;color:rgba(255,255,255,0.18);letter-spacing:0.04em;position:relative;}
+
+@media(max-width:900px){.cart-layout{grid-template-columns:1fr;}.summary-card{position:static;}.cart-items-head{display:none;}.cart-item-row{grid-template-columns:1fr auto;gap:12px;}.item-unit-price,.item-line-price{display:none;}.footer-main{grid-template-columns:1fr 1fr;}.footer-brand{grid-column:1/-1;}}
+@media(max-width:600px){.navbar{padding:0 20px;}.nav-links{display:none;}.menu-toggle{display:flex;}.cart-page{padding:40px 20px 60px;}.footer{padding-left:20px;padding-right:20px;}.footer-main{grid-template-columns:1fr;gap:36px;}.footer-brand{grid-column:auto;}.footer-bottom{flex-direction:column;gap:8px;}}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <a href="home.html" class="nav-logo"><img src="../asset/image/LOGO_GEAN.png" alt="GEAN"></a>
+  <ul class="nav-links">
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="our-story.html">Our Story</a></li>
+    <li><a href="article.html">Article</a></li>
+    <li><a href="contact.html">Contact Us</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="shop.html" class="btn-nav-cta"><span>Buy Now</span></a>
+    <button class="menu-toggle" onclick="toggleMenu()" aria-label="Menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav-backdrop" onclick="toggleMenu()"></div>
+  <nav class="mobile-nav-panel">
+    <a href="shop.html" onclick="toggleMenu()">Shop</a>
+    <a href="our-story.html" onclick="toggleMenu()">Our Story</a>
+    <a href="article.html" onclick="toggleMenu()">Article</a>
+    <a href="contact.html" onclick="toggleMenu()">Contact Us</a>
+    <a href="shop.html" class="btn-nav-cta"><span>Buy Now</span></a>
+  </nav>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <span class="ph-tag">GEAN Care</span>
+  <h1 class="ph-title">My <span>Cart</span></h1>
+</div>
+
+<!-- CART PAGE -->
+<div class="cart-page">
+  <p class="cart-note">Want to keep shopping? <a href="shop.html">Continue browsing →</a></p>
+
+  <div class="cart-layout" id="cartLayout">
+    <!-- CART ITEMS -->
+    <div class="cart-items-card">
+      <div class="cart-items-head">
+        <span>Product</span><span>Unit Price</span><span>Quantity</span><span></span>
+      </div>
+
+      <div class="cart-item-row" id="item1">
+        <div class="item-info">
+          <div class="item-thumb"></div>
+          <div>
+            <div class="item-name">GEAN Hand Cream</div>
+            <div class="item-variant">Original · 30ml</div>
+          </div>
+        </div>
+        <div class="item-unit-price">฿390.00</div>
+        <div class="qty-control">
+          <button class="qty-btn" onclick="changeQty('item1',-1)">−</button>
+          <span class="qty-num" id="qty1">1</span>
+          <button class="qty-btn" onclick="changeQty('item1',1)">+</button>
+        </div>
+        <button class="item-remove" onclick="removeItem('item1')">×</button>
+      </div>
+
+      <div class="cart-item-row" id="item2">
+        <div class="item-info">
+          <div class="item-thumb" style="background:linear-gradient(150deg,#EFF7F1,#C8E0D8);"></div>
+          <div>
+            <div class="item-name">GEAN Hand Cream</div>
+            <div class="item-variant">Green Tea Edition · 30ml</div>
+          </div>
+        </div>
+        <div class="item-unit-price">฿420.00</div>
+        <div class="qty-control">
+          <button class="qty-btn" onclick="changeQty('item2',-1)">−</button>
+          <span class="qty-num" id="qty2">1</span>
+          <button class="qty-btn" onclick="changeQty('item2',1)">+</button>
+        </div>
+        <button class="item-remove" onclick="removeItem('item2')">×</button>
+      </div>
+    </div>
+
+    <!-- ORDER SUMMARY -->
+    <div class="summary-card">
+      <div class="summary-title">Order Summary</div>
+      <div class="summary-row"><span>Subtotal (2 items)</span><span id="subtotal">฿810.00</span></div>
+      <div class="summary-row"><span>Shipping</span><span class="summary-free">Free</span></div>
+      <div class="summary-row total"><span>Total</span><span id="total">฿810.00</span></div>
+      <button class="btn-checkout"><span>Proceed to Checkout</span></button>
+      <a href="shop.html" class="continue-link">← Continue Shopping</a>
+      <div class="trust-row">
+        <div class="trust-item"><span class="trust-label">Secure</span><span class="trust-sub">Safe checkout</span></div>
+        <div class="trust-item"><span class="trust-label">Free Ship</span><span class="trust-sub">All orders</span></div>
+        <div class="trust-item"><span class="trust-label">1–3 Days</span><span class="trust-sub">Delivery</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-main">
+    <div class="footer-brand">
+      <img src="../asset/image/LOGO_GEAN.png" alt="GEAN">
+      <p class="footer-tagline">Beyond moisture. A sanctuary for your hands. Premium hand care for the modern professional.</p>
+      <div class="footer-social">
+        <a href="https://lin.ee/9KbETXv" target="_blank" rel="noopener" class="social-btn">LINE</a>
+        <a href="https://www.instagram.com/gean.officially" target="_blank" rel="noopener" class="social-btn">IG</a>
+      </div>
+    </div>
+    <div class="footer-col"><div class="footer-col-label">Navigate</div><a href="shop.html">Shop</a><a href="our-story.html">Our Story</a><a href="article.html">Article</a><a href="contact.html">Contact Us</a></div>
+    <div class="footer-col"><div class="footer-col-label">Contact</div><a href="https://lin.ee/9KbETXv" target="_blank" rel="noopener">LINE @gean.officially</a><a href="https://www.instagram.com/gean.officially" target="_blank" rel="noopener">Instagram @gean.officially</a></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 GEAN. All rights reserved.</span>
+    <span>Hand care for the modern professional.</span>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.getElementById('mobileNav').classList.toggle('open');}
+const prices={item1:390,item2:420};
+const qtys={item1:1,item2:1};
+const active={item1:true,item2:true};
+function updateTotal(){
+  let sub=0,count=0;
+  for(const id in active){if(active[id]){sub+=prices[id]*qtys[id];count+=qtys[id];}}
+  document.getElementById('subtotal').textContent='฿'+sub.toLocaleString()+'.00';
+  document.getElementById('total').textContent='฿'+sub.toLocaleString()+'.00';
+  if(count===0)showEmpty();
+}
+function changeQty(id,d){
+  qtys[id]=Math.max(0,Math.min(99,qtys[id]+d));
+  if(qtys[id]===0)removeItem(id);
+  else{document.getElementById('qty'+id.slice(-1)).textContent=qtys[id];updateTotal();}
+}
+function removeItem(id){
+  active[id]=false;
+  document.getElementById(id).style.display='none';
+  updateTotal();
+}
+function showEmpty(){
+  document.getElementById('cartLayout').innerHTML=`
+    <div class="cart-items-card">
+      <div class="empty-state">
+        <div class="empty-icon">○</div>
+        <div class="empty-title">Your cart is empty</div>
+        <div class="empty-desc">Looks like you haven't added anything yet.</div>
+        <a href="shop.html" class="btn-shop"><span>Go to Shop</span></a>
+      </div>
+    </div>
+    <div class="summary-card">
+      <div class="summary-title">Order Summary</div>
+      <div class="summary-row total"><span>Total</span><span>฿0.00</span></div>
+      <button class="btn-checkout" disabled style="opacity:0.35;cursor:not-allowed;"><span>Proceed to Checkout</span></button>
+    </div>`;
+}
+</script>
+</body>
+</html>

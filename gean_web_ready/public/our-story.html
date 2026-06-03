@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GEAN — Our Story</title>
+<link rel="stylesheet" href="/css/tokens.css">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/navbar.css">
+<link rel="stylesheet" href="/css/footer.css">
+<link rel="stylesheet" href="/css/pages/our-story.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <a href="/" class="nav-logo"><img src="/asset/image/LOGO_GEAN.png" alt="GEAN"></a>
+  <ul class="nav-links">
+    <li><a href="/shop">Shop</a></li>
+    <li><a href="/our-story">Our Story</a></li>
+    <li><a href="/article">Article</a></li>
+    <li><a href="/contact">Contact Us</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="/cart" class="cart-icon-btn" id="cartIconBtn" aria-label="Cart">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/>
+      </svg>
+      <span class="cart-badge" id="cartBadge" style="display:none">0</span>
+    </a>
+    <a href="/contact" class="btn-nav-cta"><span>Buy Now</span></a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
+  <nav class="mobile-nav-panel">
+    <a href="/shop">Shop</a>
+    <a href="/our-story">Our Story</a>
+    <a href="/article">Article</a>
+    <a href="/contact">Contact Us</a>
+    <a href="/contact" class="btn-nav-cta"><span>Buy Now</span></a>
+  </nav>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="storyHero">
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <p class="hero-kicker">
+      <span class="hero-kicker-line"></span>Our Story<span class="hero-kicker-line"></span>
+    </p>
+    <h1 class="hero-h1">The <span class="light">Story</span><br><em>of GEAN</em></h1>
+    <p class="hero-p">A brand built on the belief that the rituals we keep at our desks should be as considered as the work we do.</p>
+    <a href="#story" class="btn-hero-outline" id="storyScrollBtn">
+      <span>Discover Our Story</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;">
+        <line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/>
+      </svg>
+    </a>
+  </div>
+</section>
+
+<!-- STORY SECTION -->
+<section class="story-section" id="story">
+  <div class="story-intro">
+    <div class="story-side-label">Our Story</div>
+    <div class="story-title-block">
+      <span class="section-eyebrow">GEAN Brand Narrative</span>
+      <h2 class="story-main-title">Beyond Moisture</h2>
+      <p class="story-subtitle">A sanctuary for your hands.</p>
+    </div>
+  </div>
+
+  <!-- ENGLISH NARRATIVE -->
+  <div class="story-lang-block" id="storyEn">
+    <div class="story-lang-tag">
+      <span class="lang-label">English</span>
+      <div class="lang-rule"></div>
+    </div>
+    <div class="story-body">
+      <p class="story-para">
+        GEAN was born out of a simple frustration: every hand cream we tried left a greasy residue on the keyboard, a shine on the screen, a faint but unmistakable smell that announced itself across the conference table. We believed that caring for your hands shouldn't come at the cost of your professional presence.
+      </p>
+      <p class="story-para">
+        The idea began in an office. Not a laboratory, not a spa — an open-plan workspace where hands type relentlessly, sanitise repeatedly, and reach across desks for the next task. We watched hands work and asked: what would they deserve, if someone finally paid attention?
+      </p>
+      <p class="story-para">
+        The answer took two years to formulate. We worked with a team of cosmetic chemists to develop a base built on 95% plant-derived squalane — lightweight, invisible, instantly absorbed. We layered in Ceramide Complex to repair what air-conditioning and sanitiser strip away day after day. We chose D-Panthenol for recovery, green and white tea for antioxidant defence. And for the scent, we spent months finding the balance: close enough to be personal, quiet enough to be professional.
+      </p>
+      <p class="story-para">
+        GEAN is not a luxury. It is a standard. The standard we believe your hands deserve — every hour, every day, at every desk.
+      </p>
+    </div>
+  </div>
+
+  <!-- THAI NARRATIVE -->
+  <div class="story-lang-block" id="storyTh">
+    <div class="story-lang-tag">
+      <span class="lang-label">ภาษาไทย</span>
+      <div class="lang-rule"></div>
+    </div>
+    <div class="story-body">
+      <p class="story-para">
+        GEAN เกิดขึ้นจากความรู้สึกหงุดหงิดง่ายๆ ครีมทามือทุกตัวที่เราลองใช้ทิ้งคราบมันบนคีย์บอร์ด เหลือรอยบนหน้าจอ และกลิ่นที่ฟุ้งไปทั่วห้องประชุม เราเชื่อว่าการดูแลมือไม่ควรแลกมาด้วยภาพลักษณ์ในที่ทำงาน
+      </p>
+      <p class="story-para">
+        ความคิดนี้เริ่มต้นในออฟฟิศ ไม่ใช่ห้องทดลองหรือสปา แต่เป็นพื้นที่ทำงานที่มือต้องพิมพ์ไม่หยุด ล้างมือซ้ำแล้วซ้ำเล่า และยื่นถึงงานชิ้นต่อไปตลอดวัน เราสังเกตมือที่ทำงานหนักและถามว่า ถ้ามีใครสักคนใส่ใจ มือเหล่านี้ควรได้รับอะไร?
+      </p>
+      <p class="story-para">
+        คำตอบใช้เวลาสองปีในการพัฒนา เราร่วมงานกับทีมนักเคมีเครื่องสำอางเพื่อสร้างสูตรที่มีพื้นฐานจาก Squalane จากพืช 95% ซึมซาบทันที เบาสบาย มองไม่เห็นคราบ เสริมด้วย Ceramide Complex เพื่อซ่อมแซมสิ่งที่แอร์และน้ำยาฆ่าเชื้อทำลายทุกวัน เลือก D-Panthenol สำหรับการฟื้นฟู ชาเขียวและชาขาวเพื่อต้านอนุมูลอิสระ และสำหรับกลิ่นหอม เราใช้เวลาหลายเดือนหาสมดุล: ใกล้พอที่จะเป็นส่วนตัว เบาพอที่จะไม่รบกวนผู้อื่น
+      </p>
+      <p class="story-para">
+        GEAN ไม่ใช่ความหรูหรา แต่คือมาตรฐาน มาตรฐานที่เราเชื่อว่ามือของคุณสมควรได้รับ ทุกชั่วโมง ทุกวัน ทุกโต๊ะทำงาน
+      </p>
+    </div>
+  </div>
+
+  <!-- HOME navigation shortcut -->
+  <div class="story-nav-row">
+    <a href="/" class="story-home-link">← HOME</a>
+    <a href="/shop" class="story-shop-link">Shop GEAN →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-main">
+    <div class="footer-brand">
+      <img src="/asset/image/LOGO_GEAN.png" alt="GEAN">
+      <p class="footer-tagline">Beyond moisture. A sanctuary for your hands. Premium hand care for the modern professional.</p>
+      <div class="footer-social">
+        <a href="https://lin.ee/9KbETXv" target="_blank" rel="noopener" class="social-btn">LINE</a>
+        <a href="https://www.instagram.com/gean.officially" target="_blank" rel="noopener" class="social-btn">IG</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-label">Navigate</div>
+      <a href="/shop">Shop</a><a href="/our-story">Our Story</a><a href="/article">Article</a><a href="/contact">Contact Us</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-label">Contact</div>
+      <a href="https://lin.ee/9KbETXv" target="_blank" rel="noopener">LINE @gean.officially</a>
+      <a href="https://www.instagram.com/gean.officially" target="_blank" rel="noopener">Instagram @gean.officially</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 GEAN. All rights reserved.</span>
+    <span>Hand care for the modern professional.</span>
+  </div>
+</footer>
+
+<script src="/js/api.js"></script>
+<script src="/js/cart.js"></script>
+<script src="/js/navbar.js"></script>
+<script src="/js/pages/our-story.js"></script>
+</body>
+</html>

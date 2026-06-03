@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GEAN — Our Story</title>
+<style>
+@font-face{font-family:'Montserrat';src:url('../asset/font/Montserrat/Montserrat-VariableFont_wght.ttf') format('truetype');font-weight:100 900;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Montserrat';src:url('../asset/font/Montserrat/Montserrat-Italic-VariableFont_wght.ttf') format('truetype');font-weight:100 900;font-style:italic;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Sarabun';src:url('../asset/font/Sarabun/Sarabun-VariableFont_wght.ttf') format('truetype');font-weight:100 900;font-style:normal;font-display:swap;unicode-range:U+0E00-0E7F;}
+@font-face{font-family:'Sarabun';src:url('../asset/font/Sarabun/Sarabun-Italic-VariableFont_wght.ttf') format('truetype');font-weight:100 900;font-style:italic;font-display:swap;unicode-range:U+0E00-0E7F;}
+:root{
+  --navy:#2A4A3E;--navy-dark:#1C3530;--navy-900:#111D1A;
+  --tan:#CFAB8D;--tan-light:#E8D5C0;--tan-dark:#B8956F;
+  --sage:#CCE1D9;--cream:#F5FAF8;--white:#FFFFFF;
+  --text:#1A1A1A;--muted:#7A7A7A;--border:#D8EAE4;
+  --sh-sm:0 4px 16px rgba(0,0,0,0.07);--sh-md:0 8px 32px rgba(0,0,0,0.10);--sh-lg:0 20px 60px rgba(0,0,0,0.14);
+  --r-sm:8px;--r:16px;--r-lg:24px;--r-xl:40px;
+  --ease-out:cubic-bezier(0.22,1,0.36,1);
+  --sv:clamp(80px,8vw,120px);--sh:clamp(20px,4vw,56px);--mw:1100px;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+button,input,select,textarea{font-family:'Montserrat','Sarabun',sans-serif;}
+body{font-family:'Montserrat','Sarabun',sans-serif;background:var(--cream);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+img{max-width:100%;display:block;}
+a{text-decoration:none;color:inherit;}
+
+/* NAVBAR */
+.navbar{position:sticky;top:0;z-index:100;background:rgba(245,250,248,0.92);backdrop-filter:blur(20px) saturate(1.5);-webkit-backdrop-filter:blur(20px) saturate(1.5);border-bottom:1px solid var(--border);padding:0 var(--sh);height:64px;display:flex;align-items:center;justify-content:space-between;}
+.navbar::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--sage),var(--tan),var(--sage));}
+.nav-logo img{height:34px;}
+.nav-links{display:flex;gap:36px;list-style:none;}
+.nav-links a{font-size:10px;font-weight:500;color:var(--muted);letter-spacing:0.18em;text-transform:uppercase;transition:color 0.2s;position:relative;padding-bottom:2px;}
+.nav-links a::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:1px;background:var(--tan);transform:scaleX(0);transform-origin:left;transition:transform 0.3s var(--ease-out);}
+.nav-links a:hover{color:var(--navy);}
+.nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);}
+.nav-links a.active{color:var(--navy);}
+.nav-right{display:flex;align-items:center;gap:8px;}
+.btn-nav-cta{background:var(--navy);color:var(--white);border:none;padding:8px 20px;border-radius:var(--r-xl);font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;cursor:pointer;transition:all 0.3s var(--ease-out);position:relative;overflow:hidden;}
+.btn-nav-cta::before{content:'';position:absolute;inset:0;background:var(--tan);transform:translateX(-101%);transition:transform 0.3s var(--ease-out);}
+.btn-nav-cta:hover::before{transform:translateX(0);}
+.btn-nav-cta span{position:relative;z-index:1;}
+.menu-toggle{display:none;background:none;border:none;cursor:pointer;width:38px;height:38px;border-radius:50%;align-items:center;justify-content:center;color:var(--navy);transition:background 0.2s;}
+.menu-toggle:hover{background:var(--border);}
+.menu-toggle svg{width:18px;height:18px;}
+.mobile-nav{display:none;position:fixed;inset:0;z-index:99;}
+.mobile-nav.open{display:block;}
+.mobile-nav-backdrop{position:absolute;inset:0;background:rgba(0,0,0,0.5);backdrop-filter:blur(4px);}
+.mobile-nav-panel{position:absolute;top:0;right:0;bottom:0;width:280px;background:var(--white);padding:80px 32px 40px;display:flex;flex-direction:column;gap:4px;}
+.mobile-nav-panel a{font-size:12px;font-weight:600;color:var(--navy);letter-spacing:0.1em;text-transform:uppercase;padding:14px 0;border-bottom:1px solid var(--border);}
+.mobile-nav-panel .btn-nav-cta{margin-top:16px;text-align:center;display:block;padding:12px 20px;}
+
+/* HERO */
+.hero{
+  background:radial-gradient(circle 580px at 14% 70%,rgba(204,225,217,0.18) 0%,transparent 58%),radial-gradient(ellipse at 75% 35%,rgba(207,171,141,0.16) 0%,transparent 55%),linear-gradient(150deg,var(--navy) 0%,var(--navy-dark) 100%);
+  min-height:82vh;display:flex;align-items:center;justify-content:center;
+  text-align:center;padding:120px var(--sh) 100px;position:relative;overflow:hidden;
+}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(204,225,217,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(204,225,217,0.03) 1px,transparent 1px);background-size:80px 80px;}
+.hero::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:80px;background:linear-gradient(to top,var(--cream),transparent);}
+.hero-inner{position:relative;z-index:2;max-width:780px;}
+.hero-kicker{font-size:10px;font-weight:600;color:var(--tan);letter-spacing:0.4em;text-transform:uppercase;margin-bottom:28px;display:flex;align-items:center;justify-content:center;gap:12px;}
+.hero-kicker-line{width:28px;height:1px;background:var(--tan);opacity:0.5;}
+.hero-h1{font-size:clamp(42px,7vw,88px);font-weight:800;color:var(--white);letter-spacing:0.03em;text-transform:uppercase;line-height:0.95;margin-bottom:24px;}
+.hero-h1 em{font-style:normal;color:var(--tan);}
+.hero-h1 .light{font-weight:200;}
+.hero-p{font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:48px;letter-spacing:0.08em;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.8;}
+.btn-hero-outline{display:inline-flex;align-items:center;gap:10px;background:transparent;color:var(--white);border:1px solid rgba(255,255,255,0.22);padding:14px 36px;border-radius:var(--r-xl);font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;cursor:pointer;transition:all 0.4s var(--ease-out);position:relative;overflow:hidden;}
+.btn-hero-outline::before{content:'';position:absolute;inset:0;background:var(--white);transform:scaleX(0);transform-origin:left;transition:transform 0.4s var(--ease-out);}
+.btn-hero-outline:hover{color:var(--navy);border-color:var(--white);}
+.btn-hero-outline:hover::before{transform:scaleX(1);}
+.btn-hero-outline span,.btn-hero-outline svg{position:relative;z-index:1;}
+.btn-hero-outline svg{width:14px;height:14px;}
+
+/* STORY SECTION */
+.story-section{max-width:var(--mw);margin:0 auto;padding:var(--sv) var(--sh);}
+.story-intro{display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:flex-start;margin-bottom:72px;}
+.story-side-label{writing-mode:vertical-lr;transform:rotate(180deg);font-size:10px;font-weight:700;color:var(--tan);letter-spacing:0.3em;text-transform:uppercase;padding:20px 10px;border-left:2px solid var(--tan);background:rgba(204,225,217,0.15);border-radius:0 4px 4px 0;white-space:nowrap;}
+.story-title-block{}
+.section-eyebrow{font-size:10px;font-weight:600;color:var(--tan);letter-spacing:0.35em;text-transform:uppercase;margin-bottom:10px;display:block;}
+.section-title{font-size:clamp(30px,3.8vw,52px);font-weight:800;color:var(--navy);letter-spacing:0.01em;line-height:1.1;margin-bottom:56px;}
+
+/* STORY ARTICLES */
+.story-articles{display:flex;flex-direction:column;gap:0;}
+.story-article{display:grid;grid-template-columns:80px 1fr;gap:0;border-top:1px solid var(--border);padding:40px 0;position:relative;}
+.story-article:last-child{border-bottom:1px solid var(--border);}
+.story-num{font-size:11px;font-weight:700;color:var(--tan);letter-spacing:0.25em;padding-top:4px;}
+.story-content{}
+.story-lang-tag{display:inline-block;font-size:9px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;padding:4px 12px;border-radius:var(--r-xl);margin-bottom:14px;}
+.tag-en{background:var(--navy);color:var(--white);}
+.tag-th{background:var(--tan);color:var(--white);}
+.story-text{font-size:14px;line-height:2;color:var(--muted);}
+.story-text p{margin-bottom:18px;}
+.story-text p:last-child{margin-bottom:0;}
+
+/* BRAND STATEMENT */
+.quote-section{background:var(--cream);padding:clamp(32px,3vw,48px) var(--sh) var(--sv);position:relative;overflow:hidden;text-align:center;}
+.quote-section::after{content:'"';position:absolute;right:-20px;bottom:-60px;font-size:360px;font-family:Georgia,serif;color:rgba(42,74,62,0.04);line-height:1;pointer-events:none;}
+.quote-inner{max-width:780px;margin:0 auto;position:relative;z-index:1;}
+.quote-mark{font-size:72px;line-height:0.7;color:var(--tan);opacity:0.5;font-family:Georgia,serif;display:block;margin-bottom:20px;}
+.quote-text{font-size:clamp(22px,3.2vw,42px);font-weight:800;color:var(--navy);line-height:1.5;letter-spacing:-0.005em;}
+.quote-text em{font-style:normal;color:var(--tan-dark);}
+.quote-line{width:36px;height:2px;background:var(--tan);margin:32px auto;}
+.quote-sub{font-size:9px;font-weight:700;color:var(--muted);letter-spacing:0.36em;text-transform:uppercase;}
+
+/* VALUES SECTION */
+.values-section{background:linear-gradient(155deg,var(--navy-dark) 0%,var(--navy) 100%);padding:var(--sv) var(--sh);position:relative;overflow:hidden;}
+.values-section::after{content:'';position:absolute;top:-120px;right:-80px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(207,171,141,0.06) 0%,transparent 65%);pointer-events:none;}
+.values-inner{max-width:var(--mw);margin:0 auto;position:relative;z-index:1;}
+.values-header{margin-bottom:56px;text-align:center;}
+.values-header .section-eyebrow{color:var(--tan);}
+.values-header .section-title{color:var(--white);margin-bottom:0;}
+.values-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.value-card{background:rgba(255,255,255,0.05);padding:40px 28px;border-radius:var(--r);border:1px solid rgba(255,255,255,0.09);transition:all 0.35s var(--ease-out);position:relative;overflow:hidden;}
+.value-card::before{content:attr(data-n);position:absolute;top:-8px;right:14px;font-size:88px;font-weight:800;color:rgba(255,255,255,0.04);line-height:1;pointer-events:none;transition:color 0.35s;}
+.value-card:hover{background:rgba(255,255,255,0.09);border-color:rgba(207,171,141,0.45);transform:translateY(-5px);box-shadow:0 20px 48px rgba(0,0,0,0.22);}
+.value-card:hover::before{color:rgba(255,255,255,0.07);}
+.value-icon{width:46px;height:46px;border-radius:12px;background:rgba(207,171,141,0.14);display:flex;align-items:center;justify-content:center;margin-bottom:24px;color:var(--tan);transition:background 0.3s;}
+.value-icon svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
+.value-card:hover .value-icon{background:rgba(207,171,141,0.24);}
+.value-num{font-size:9px;font-weight:700;color:var(--tan);letter-spacing:0.32em;text-transform:uppercase;margin-bottom:12px;}
+.value-title{font-size:15px;font-weight:700;color:var(--white);margin-bottom:10px;}
+.value-desc{font-size:12px;color:rgba(255,255,255,0.48);line-height:1.85;}
+
+.btn-back-home{display:inline-block;font-size:10px;font-weight:500;color:var(--muted);letter-spacing:0.18em;text-transform:uppercase;transition:color 0.2s;}
+.btn-back-home:hover{color:var(--navy);}
+
+/* FOOTER */
+.footer{background:var(--navy-dark);padding:80px var(--sh) 36px;position:relative;overflow:hidden;}
+.footer::before{content:'GEAN';position:absolute;bottom:-40px;right:-20px;font-size:240px;font-weight:800;color:rgba(255,255,255,0.02);line-height:1;letter-spacing:-0.02em;pointer-events:none;}
+.footer-main{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.8fr 1fr 1fr;gap:64px;padding-bottom:52px;border-bottom:1px solid rgba(255,255,255,0.07);position:relative;}
+.footer-brand img{height:32px;margin-bottom:18px;filter:brightness(0) invert(1);}
+.footer-tagline{font-size:12px;color:rgba(255,255,255,0.35);line-height:1.9;max-width:240px;margin-bottom:28px;}
+.footer-social{display:flex;gap:8px;}
+.social-btn{width:38px;height:38px;border-radius:var(--r-sm);border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.5);font-size:10px;font-weight:700;letter-spacing:0.05em;transition:all 0.25s;}
+.social-btn:hover{border-color:var(--tan);color:var(--tan);background:rgba(207,171,141,0.08);}
+.footer-col-label{font-size:9px;font-weight:700;color:var(--tan);letter-spacing:0.3em;text-transform:uppercase;margin-bottom:20px;}
+.footer-col a{display:block;font-size:12px;color:rgba(255,255,255,0.42);margin-bottom:12px;transition:color 0.2s;}
+.footer-col a:hover{color:var(--white);}
+.footer-bottom{max-width:1200px;margin:0 auto;padding-top:28px;display:flex;justify-content:space-between;align-items:center;font-size:10px;color:rgba(255,255,255,0.18);letter-spacing:0.04em;position:relative;}
+
+@media(max-width:900px){.values-grid{grid-template-columns:repeat(2,1fr);gap:16px;}.story-intro{grid-template-columns:1fr;}.story-side-label{writing-mode:initial;transform:none;border-left:none;border-top:2px solid var(--tan);padding:10px 0 10px 0;border-radius:0;}}
+@media(max-width:600px){.navbar{padding:0 20px;}.nav-links{display:none;}.menu-toggle{display:flex;}.story-section{padding:56px 20px;}.story-article{grid-template-columns:1fr;gap:8px;}.values-grid{grid-template-columns:1fr;}.footer{padding-left:20px;padding-right:20px;}.footer-main{grid-template-columns:1fr;gap:36px;}.footer-bottom{flex-direction:column;gap:8px;}}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <a href="home.html" class="nav-logo"><img src="../asset/image/LOGO_GEAN.png" alt="GEAN"></a>
+  <ul class="nav-links">
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="our-story.html" class="active">Our Story</a></li>
+    <li><a href="article.html">Article</a></li>
+    <li><a href="contact.html">Contact Us</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="contact.html" class="btn-nav-cta"><span>Buy Now</span></a>
+    <button class="menu-toggle" onclick="toggleMenu()" aria-label="Menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav-backdrop" onclick="toggleMenu()"></div>
+  <nav class="mobile-nav-panel">
+    <a href="shop.html" onclick="toggleMenu()">Shop</a>
+    <a href="our-story.html" onclick="toggleMenu()">Our Story</a>
+    <a href="article.html" onclick="toggleMenu()">Article</a>
+    <a href="contact.html" onclick="toggleMenu()">Contact Us</a>
+    <a href="contact.html" class="btn-nav-cta"><span>Buy Now</span></a>
+  </nav>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <p class="hero-kicker">
+      <span class="hero-kicker-line"></span>GEAN Brand<span class="hero-kicker-line"></span>
+    </p>
+    <h1 class="hero-h1">Work <span class="light">Smarter,</span><br><em>Feel Better.</em></h1>
+    <p class="hero-p">Zero Greasiness · Scent for Focused Minds · The Office Essential</p>
+    <a href="#story" class="btn-hero-outline" onclick="document.getElementById('story').scrollIntoView({behavior:'smooth'});return false;">
+      <span>Discover Our Story</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/>
+      </svg>
+    </a>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story-section" id="story">
+  <div class="story-intro">
+    <div class="story-side-label">Our Story</div>
+    <div class="story-title-block">
+      <span class="section-eyebrow">The GEAN Story</span>
+      <h2 class="section-title">Born from a<br>simple belief</h2>
+    </div>
+  </div>
+
+  <div class="story-articles">
+    <div class="story-article">
+      <div class="story-num">01</div>
+      <div class="story-content">
+        <span class="story-lang-tag tag-en">English</span>
+        <div class="story-text">
+          <p>GEAN was born from a simple but powerful belief: that the professionals who work hardest deserve products that work just as hard for them. We saw hands that were overworked, dried out, and ignored — and we decided to change that.</p>
+          <p>Our journey began in the heart of Bangkok, where a team of skincare scientists and designers came together with one mission: to create the perfect hand cream for the modern office environment. Zero greasiness, instant absorption, and a scent engineered to promote focus and calm.</p>
+          <p>Every ingredient in GEAN is chosen with purpose. From 95% Squalane Extract to Damask Rose, we source only the finest materials that meet our strict standards of efficacy and purity. No shortcuts, no compromises — because your skin deserves nothing less than the best.</p>
+          <p>GEAN is more than a hand cream. It is a daily ritual, a moment of self-care in the middle of your busiest day. A sanctuary for your hands — and a reminder that you deserve to feel good while doing great work.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="story-article">
+      <div class="story-num">02</div>
+      <div class="story-content">
+        <span class="story-lang-tag tag-th">ภาษาไทย</span>
+        <div class="story-text">
+          <p>GEAN ถือกำเนิดจากความเชื่อที่เรียบง่ายแต่ทรงพลัง ว่าผู้คนที่ทำงานหนักที่สุดสมควรได้รับผลิตภัณฑ์ที่ทำงานหนักพอๆ กับพวกเขา เราเห็นมือที่โอเวอร์เวิร์ค แห้งกร้าน และถูกละเลย — และเราตัดสินใจเปลี่ยนแปลงสิ่งนั้น</p>
+          <p>เส้นทางของเราเริ่มต้นในใจกลางกรุงเทพมหานคร ที่ซึ่งทีมนักวิทยาศาสตร์ด้านสกินแคร์และนักออกแบบมารวมตัวกันด้วยภารกิจเดียว สร้างครีมมือที่สมบูรณ์แบบสำหรับสภาพแวดล้อมออฟฟิศยุคใหม่ ไม่เหนียวไม่มัน ซึมซาบได้ทันที กลิ่นหอมที่ออกแบบมาเพื่อส่งเสริมสมาธิและความสงบ</p>
+          <p>GEAN ไม่ใช่แค่ครีมมือ มันคือกิจกรรมเล็กๆ ประจำวัน ช่วงเวลาของการดูแลตัวเองในวันที่ยุ่งที่สุดของคุณ ทุก ingredient ถูกคัดสรรมาด้วยจุดประสงค์ ตั้งแต่ 95% Squalane Extract ไปจนถึง Damask Rose ไม่มีทางลัด ไม่มีการประนีประนอม เพราะผิวของคุณสมควรได้รับสิ่งที่ดีที่สุด</p>
+        </div>
+      </div>
+    </div>
+    <div style="padding:12px 0 0 80px;">
+      <a href="home.html" class="btn-back-home">← Back to Home</a>
+    </div>
+  </div>
+</section>
+
+<!-- BRAND STATEMENT -->
+<section class="quote-section">
+  <div class="quote-inner">
+    <span class="quote-mark">"</span>
+    <p class="quote-text">เราไม่ได้สร้างแค่ครีมมือ<br>เราสร้าง<em>กิจกรรมเล็กๆ</em><br>ที่ทำให้วันทำงานของคุณดีขึ้น</p>
+    <div class="quote-line"></div>
+    <span class="quote-sub">GEAN — Beyond Moisture</span>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values-section">
+  <div class="values-inner">
+    <div class="values-header">
+      <span class="section-eyebrow">What we stand for</span>
+      <h2 class="section-title">Our Core Values</h2>
+    </div>
+    <div class="values-grid">
+      <div class="value-card" data-n="01">
+        <div class="value-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="value-num">01</div>
+        <div class="value-title">Authenticity</div>
+        <div class="value-desc">Every product is 100% authentic, crafted with integrity and no hidden compromises.</div>
+      </div>
+      <div class="value-card" data-n="02">
+        <div class="value-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <div class="value-num">02</div>
+        <div class="value-title">Excellence</div>
+        <div class="value-desc">Premium ingredients, rigorous testing, and continuous improvement in everything we do.</div>
+      </div>
+      <div class="value-card" data-n="03">
+        <div class="value-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg></div>
+        <div class="value-num">03</div>
+        <div class="value-title">Professional</div>
+        <div class="value-desc">Designed for the modern professional who demands performance without compromise.</div>
+      </div>
+      <div class="value-card" data-n="04">
+        <div class="value-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+        <div class="value-num">04</div>
+        <div class="value-title">Wellbeing</div>
+        <div class="value-desc">We believe self-care and productivity go hand in hand — literally.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-main">
+    <div class="footer-brand">
+      <img src="../asset/image/LOGO_GEAN.png" alt="GEAN">
+      <p class="footer-tagline">Beyond moisture. A sanctuary for your hands. Premium hand care for the modern professional.</p>
+      <div class="footer-social">
+        <a href="https://lin.ee/9KbETXv" target="_blank" rel="noopener" class="social-btn">LINE</a>
+        <a href="https://www.instagram.com/gean.officially" target="_blank" rel="noopener" class="social-btn">IG</a>
+      </div>
+    </div>
+    <div class="footer-col"><div class="footer-col-label">Navigate</div><a href="shop.html">Shop</a><a href="our-story.html">Our Story</a><a href="article.html">Article</a><a href="contact.html">Contact Us</a></div>
+    <div class="footer-col"><div class="footer-col-label">Contact</div><a href="https://lin.ee/9KbETXv" target="_blank" rel="noopener">LINE @gean.officially</a><a href="https://www.instagram.com/gean.officially" target="_blank" rel="noopener">Instagram @gean.officially</a></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 GEAN. All rights reserved.</span>
+    <span>Hand care for the modern professional.</span>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.getElementById('mobileNav').classList.toggle('open');}
+</script>
+</body>
+</html>
