@@ -1,1 +1,0 @@
-Setup tests and implement all tests in @docs/test-cases.md . Also run all tests and make sure that all tests are passed.

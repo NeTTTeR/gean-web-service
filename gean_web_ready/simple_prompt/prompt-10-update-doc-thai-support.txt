@@ -1,6 +1,0 @@
-I have recently added Thai (TH) language support for internationalization (i18n) to the web-starter-kit project. Please update the following documentation files to accurately reflect the current codebase and the newly added Thai language support:
-
-1. `docs/requirement.md` - Update the requirements documentation.
-2. `docs/technical-spec.md` - Update the technical specifications.
-
-Please review the current codebase to understand what i18n changes have been implemented, then update both documentation files to ensure they accurately represent the current state of the project with the new Thai language support.
